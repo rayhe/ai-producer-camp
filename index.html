@@ -137,6 +137,29 @@
   footer.site{padding:36px 0 48px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   .note{font-size:14px;color:var(--ink-soft);font-style:italic;margin-top:14px}
+
+  /* execution plan */
+  .phase{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:10px;padding:24px 26px;margin-bottom:18px}
+  .phase .ph-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .phase .ph-num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .phase h3{font-size:22px;margin-top:2px}
+  .phase .ph-meta{font-family:var(--mono);font-size:12px;color:var(--ink-soft);white-space:nowrap}
+  .phase p{font-size:15.5px;color:var(--ink-soft)}
+  .phase ul{margin:10px 0 0 18px;font-size:15px;color:var(--ink-soft)}
+  .phase ul li{margin-bottom:6px}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin:2px 4px 2px 0;border:1px solid var(--rule);color:var(--ink-soft);background:#f4efe6}
+  .pill.ok{color:#1e6b3a;border-color:#bfe0c8;background:#eef7f0}
+  .pill.warn{color:var(--accent-deep);border-color:#ecc9b3;background:#faf1e8}
+  .gate{font-size:14.5px;margin-top:14px;border-top:1px dashed var(--rule);padding-top:10px}
+  .gate b{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+  .seams{list-style:none;display:grid;gap:10px;margin:18px 0}
+  .seams li{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:14px 18px;font-size:15px}
+  .seams li b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:3px}
+  .api{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+  .api th,.api td{padding:10px 14px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+  .api th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:#f1ece3;color:var(--ink-soft)}
+  .api tr:last-child td{border-bottom:none}
+  .api td:first-child{font-weight:600;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -437,7 +460,7 @@
   <div class="wrap">
     <p class="kicker">07 · Budget sketch</p>
     <h2>Honest math for one two-week session.</h2>
-    <p class="lede">24 campers × $895 tuition. Equipment is a one-time startup cost (amortized over 3 summers); the operating table shows a single session. Moderate gap in year one closes via sponsorships and a donor-funded scholarship bench — target 20% of seats.</p>
+    <p class="lede">24 campers × $895 tuition. Equipment is a one-time startup cost (amortized over 3 summers); the operating table shows a single steady-state session. Moderate gap in year one closes via sponsorships and a donor-funded scholarship bench — target 20% of seats. (The year-1 <em>launch</em> costs — entity, ads, compliance stack — are itemized separately in §10's launch ledger, so these two budgets never double-count.)</p>
     <div class="cols">
       <div>
         <h3>Per-session operating</h3>
@@ -538,9 +561,194 @@
   </div>
 </section>
 
+<section id="execution">
+  <div class="wrap">
+    <p class="kicker">10 · Execution plan</p>
+    <h2>Launching without humans (mostly).</h2>
+    <p class="lede">This camp can be built by one operator + a stack of real APIs, with humans inserted exactly where the law, insurers, and child safety demand it. Below: the full launch plan — seven phases, T-minus timeline, itemized budget, kill gates, and the honest list of steps that <strong>cannot</strong> be human-free. Every named API was verified to exist in Aug 2026; every marketplace that <em>doesn't</em> expose an API is flagged and given a workaround.</p>
+
+    <div class="callout">
+      <span class="mark">The operating thesis</span>
+ APIs do the paperwork: form the entity, bind insurance, run background checks, push ads, collect tuition, text parents, track rosters. Humans own the <em>judgment</em>: permit walk-throughs, insurance riders, adjudicating a flagged background check, and — non-negotiably — supervising children. Roughly 90% of the launch tasks run without a human touching them; the remaining 10% is the part that makes it legal and safe, compressed into seven single-decision human gates.
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 0 · T-22 → T-20 weeks (Jan 2027)</span><h3>Entity &amp; money</h3></div>
+        <span class="ph-meta">~3 weeks · ~$3,200</span>
+      </div>
+      <ul>
+        <li><b>Stripe Atlas</b> — form the LLC (Delaware via Atlas), EIN auto-issued by the IRS within days, Mercury operating account through Atlas's bank partner. <span class="pill ok">verified API</span></li>
+        <li>Honest note: Atlas defaults to Delaware; operating in California means foreign qualification ($70) + CA's $800/yr franchise tax <em>anyway</em>. That $870 is real and budgeted below, not a surprise.</li>
+        <li><b>DocuSign eSignature API</b> — account + templates for the three paper shapes we need: staff contractor agreements, venue agreement, parent waiver. <span class="pill ok">verified API</span> Pricing honesty: API plans are quote-based; budget $1.8–4k/yr, with a SignWell-class API as a ~$600 fallback if the quote comes in high.</li>
+      </ul>
+      <div class="gate"><b>Kill gate 0</b> — Entity + bank not live in 3 weeks → stop. Nothing downstream can hold money or sign paper.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 1 · T-20 → T-16 weeks (Jan–Feb)</span><h3>Compliance &amp; insurance</h3></div>
+        <span class="ph-meta">~4 weeks · ~$4,100</span>
+      </div>
+      <p style="margin-bottom:8px"><b>Regulatory reality first (California, 2026):</b> a seasonal, primarily-recreational summer day camp is <em>exempt</em> from child-care facility licensing (HSC §1596.792 — CDSS status confirmed in writing at T-20) — but that exemption walks you into two other regimes: (a) the <b>Organized Camps</b> law (HSC §30800 et seq. + Title 22 regs) with a permit from the <em>county health department</em> and a qualified on-site Health Supervisor; and (b) <b>AB 506</b>, which requires background checks, mandated-reporter training, and a child-abuse-prevention policy from youth-service organizations — we apply it in full regardless of the for-profit edge case. This plan complies with all three. <span class="pill warn">human seam: county inspector</span></p>
+      <ul>
+        <li><b>Thimble API</b> (thimble.com/api) — binds base General Liability by API, by the job, month, or year, and issues the certificate of insurance naming the venue host as additional insured — which is what actually unblocks the venue booking. <span class="pill ok">verified API</span></li>
+        <li><b>Honest seam:</b> the <em>abuse &amp; molestation endorsement</em> — which county inspectors and sane parents require — is underwritten by specialists (camp insurers like K&amp;K), not purchasable via any self-serve API. One broker call. ~$1,200/yr.</li>
+        <li><b>Checkr API</b> — invite + run 8 adult background checks (5 staff incl. the director + 3 bench candidates) at ~$65 avg incl. county fees. The 4 CITs are minors — FCRA checks on 16-year-olds are legally fraught and mostly meaningless; they get reference checks, training, and supervised roles instead. <span class="pill ok">verified API</span></li>
+        <li>AB 506 / mandated-reporter training — online, ~$20/head for all 12, certificates auto-filed to the compliance folder.</li>
+        <li>County organized-camp permit application submitted online; county does one walk-through inspection at the venue (Phase 6). Fee ~$400.</li>
+      </ul>
+      <div class="gate"><b>Kill gate 1</b> — No insurance binder + permit application accepted by T-16 → stop <em>before the venue deposit moves</em> (nothing is refundable-proof at that point). The county can simply be slow; that's a stop, not a workaround.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 2 · T-20 → T-14 weeks (Feb–Mar)</span><h3>Venue</h3></div>
+        <span class="ph-meta">~4 weeks (overlaps P1) · deposit $1,200</span>
+      </div>
+      <ul>
+        <li>Requirements spec, written once and reused: 1,500+ sq ft makerspace, quiet interview room, secure outdoor access, walkable block, gallery wall, weekday 8am–6pm access June 7–18, COI naming the host.</li>
+        <li><b>Peerspace / Tagvenue — flagged honestly: neither exposes a public booking or inquiry API</b> (verified Aug 2026; they are message-and-book marketplaces). <span class="pill warn">no public API</span></li>
+        <li>Workaround: scripted marketplace search + browser automation builds a shortlist of 6 candidate venues with pricing and availability into Airtable; the operator makes <b>one decision</b> — pick + approve deposit (card on file). Hosts reply in-marketplace; the final booking is deliberately not scripted.</li>
+        <li>Budget anchor: ~$4,800/session (10 days × 7h × ~$70/h market rate), 25% deposit due at booking.</li>
+      </ul>
+      <div class="gate"><b>Kill gate 2</b> — No signed venue by T-14 → no June session. The venue is the long pole; there is no second choice without moving the cohort's dates.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 3 · T-16 → T-10 weeks (Feb–early Apr)</span><h3>Staffing</h3></div>
+        <span class="ph-meta">~6 weeks (overlaps P2) · ~$1,500 platform + comp budget</span>
+      </div>
+      <ul>
+        <li><b>Deel API</b> — contractor agreements, onboarding docs, and payouts for all 9 staff, end-to-end (~$49/contractor/mo). <span class="pill ok">verified API</span></li>
+        <li>Sourcing: Upwork is <b>flagged honestly — its hiring API is restricted</b> (enterprise/managed access, not open for automated posting). <span class="pill warn">restricted API</span> Fallback that works: agent-assisted posting + invites through the UI, plus local maker-space and school job boards.</li>
+        <li>Screening: async video interviews transcribed by a speech-to-text API and scored against a published rubric (kid-safety judgment ranked above technical skill); reference calls scheduled by Twilio; rankings in Airtable.</li>
+        <li><b>Adjudication seam:</b> any flagged background check goes to a human decision (FCRA adverse-action review). No auto-reject, ever.</li>
+        <li>Structure: 5 instructors + 4 CITs behind the 1:6 ratio floor. <b>The adult-in-the-room floor is the irreducible human core of this plan</b> — see Honest Seams below.</li>
+      </ul>
+      <div class="gate"><b>Kill gate 3</b> — Fewer than 4 instructors with clean checks by T-10 → cut cohort to 18 campers and re-plan ratios; below 3, postpone.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 4 · T-18 → T-4 weeks (Feb–mid May)</span><h3>Camper acquisition</h3></div>
+        <span class="ph-meta">~14 weeks · ~$6,800</span>
+      </div>
+      <ul>
+        <li><b>Meta Marketing API + Google Ads API</b> — both real, both scriptable: launch, budget, pause, and report by code. <span class="pill ok">verified APIs</span> $6,000 spend plan; target CPL $40–70, implied CAC ≈ $250/camper.</li>
+        <li>Funnel math (honest version): ~$6k spend → ~120 qualified leads → 24–30 enrollments at 20–25% lead→paid conversion. If CPL runs &gt; $90 for two straight weeks, ad sets pause automatically — the API kills its own spend.</li>
+        <li><b>Stripe Payment Links</b> (created via API) — $895 tuition, deposit option, scholarship codes. <span class="pill ok">verified API</span> Processing 2.9% + 30¢ ≈ $623/session.</li>
+        <li><b>Typeform API</b> intake (camper info, allergies, pickup authorizations) webhooked into <b>Airtable</b>; <b>DocuSign API</b> sends the liability waiver + photo release automatically on payment. <span class="pill ok">verified APIs</span></li>
+        <li>Landing page: this site — the placeholder CTA above swaps to the live Payment Link at T-18. Hosting is free (GitHub Pages); forms and payments are all API-side.</li>
+      </ul>
+      <div class="gate"><b>Kill gate 4 (soft, T-8)</b> — fewer than 8 paid → cut ad spend to $2k retarget-only. <b>Hard, T-4:</b> fewer than 14 paid → cancel session, refund in full via Stripe, run the wind-down checklist. Cancelling at T-4 strands ≈ $10k (sunk ad spend + non-refundable setup) — that number is the plan's true worst case, and it's why the gates exist.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 5 · T-12 → T-2 weeks (Mar–early Jun)</span><h3>Ops &amp; equipment</h3></div>
+        <span class="ph-meta">~10 weeks (overlaps P3–P4) · ~$360 tools + equipment budget</span>
+      </div>
+      <ul>
+        <li><b>Airtable API</b> — the camper database of record: roster, med/allergy flags, pickup PINs + authorized-adult photos, incident log, daily attendance. <span class="pill ok">verified API</span></li>
+        <li><b>Twilio</b> — parent comms: enrollment confirmation, week-of logistics pack, daily 9:15 "we're on" and 3:45 pickup pings, emergency broadcast. ~$140/session. <span class="pill ok">verified API</span></li>
+        <li><b>Equipment ordering — flagged honestly: Amazon Business has no public ordering API</b> (punch-out procurement only). <span class="pill warn">no public API</span> Electronics (micro:bits, sensors, solder stock) order cleanly via <b>Digi-Key / Mouser APIs</b> (real order APIs); big-ticket items — the $19,500 startup list in §08 (3 printers, 6 rover kits, 12 refurbished laptops) — are assembled as carts by the agent with <b>one human checkout click</b>. Order by T-8 so printers are commissioned and staff-trained by T-2.</li>
+      </ul>
+      <div class="gate"><b>Kill gate 5</b> — Printers + laptop cart not commissioned by T-2 → switch Days 5/7 to a pre-negotiated partner makerspace (+$900 from contingency) rather than run untested tools with kids.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head">
+        <div><span class="ph-num">Phase 6 · T-2 → T-0 (June) · then daily</span><h3>Run of show</h3></div>
+        <span class="ph-meta">2 weeks setup · daily ops</span>
+      </div>
+      <ul>
+        <li>Pre-camp: staff on-site training day, venue walk-through with the county inspector (permit sign-off), tool-safety certification for every instructor, dismissal-flow rehearsal.</li>
+        <li>Daily automated: Airtable check-in (QR + PIN per camper), crew schedule rotation, Twilio parent pings, incident-log timestamps, end-of-day summary digest to the director.</li>
+        <li>Daily human-gated: medication administration (trained director only, logged), injury/incident command (director decides; the 1:6 ratio is maintained no matter what), the two-adult rule (no camper ever alone with a single adult out of sight of the group), and pickup — photo-ID match against the Airtable authorization record at the door. The robot never dismisses a child.</li>
+        <li>Showcase Night: QR-linked gallery per camper, auto-generated portfolios, taste-panel scorecards printed from Airtable.</li>
+      </ul>
+      <div class="gate"><b>Gate 6 (continuous)</b> — Any unsupervised-tool incident or ratio breach = same-day stop-work on that activity, tracker entry, and parents notified within the hour. Two breaches = that activity is done for the summer.</div>
+    </div>
+
+    <div class="cols" style="margin-top:40px">
+      <div>
+        <h3>T-minus timeline</h3>
+        <table class="sched">
+          <tr><td>T-22w</td><td>Jan '27</td><td>Entity, bank, DocuSign live (P0)</td></tr>
+          <tr><td>T-20w</td><td>late Jan</td><td>Insurance bind starts · checks invited · permit filed (P1) · venue shortlist opens (P2)</td></tr>
+          <tr><td>T-18w</td><td>early Feb</td><td>Ads live; funnel accepting paid enrollments (P4)</td></tr>
+          <tr><td>T-16w</td><td>Feb</td><td>Binder + permit accepted — or die at Gate 1 · hiring sprint starts (P3)</td></tr>
+          <tr><td>T-14w</td><td>early Mar</td><td>Venue signed + deposit — or die at Gate 2</td></tr>
+          <tr><td>T-10w</td><td>early Apr</td><td>Staff offers out, checks cleared · equipment ordered (P5)</td></tr>
+          <tr><td>T-8w</td><td>mid Apr</td><td>Soft gate: ≥8 paid, or ads cut to retarget-only</td></tr>
+          <tr><td>T-6w</td><td>early May</td><td>Airtable + Twilio ops stack built and dry-run</td></tr>
+          <tr><td>T-4w</td><td>mid May</td><td>Hard gate: ≥14 paid, or cancel + refund</td></tr>
+          <tr><td>T-2w</td><td>early Jun</td><td>Equipment commissioned, staff training, county walk-through (P6)</td></tr>
+          <tr><td>T-0</td><td>Jun 14 '27</td><td>Day 1: The Blind Taste Test</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Launch ledger (incremental)</h3>
+        <table class="budget">
+          <tr><th>Line</th><th>Cost</th></tr>
+          <tr><td>Stripe Atlas + EIN + banking</td><td>$500</td></tr>
+          <tr><td>CA foreign reg + franchise tax</td><td>$870</td></tr>
+          <tr><td>DocuSign API (annual, see range)</td><td>$1,800</td></tr>
+          <tr><td>Thimble GL (annual)</td><td>$1,700</td></tr>
+          <tr><td>Abuse/molestation rider (broker)</td><td>$1,200</td></tr>
+          <tr><td>Checkr ×8 adults (~$65 avg)</td><td>$520</td></tr>
+          <tr><td>AB 506 / mandated-reporter ×12</td><td>$240</td></tr>
+          <tr><td>County camp permit</td><td>$400</td></tr>
+          <tr><td>Deel ×9 × 2mo ($49)</td><td>$882</td></tr>
+          <tr><td>Sourcing (Upwork + boards)</td><td>$600</td></tr>
+          <tr><td>Meta + Google ads</td><td>$6,000</td></tr>
+          <tr><td>Stripe processing (2.9% of $21.5k)</td><td>$623</td></tr>
+          <tr><td>Typeform ×3mo</td><td>$150</td></tr>
+          <tr><td>Airtable ×3mo + Twilio</td><td>$356</td></tr>
+          <tr><td>Freight/spares + contingency</td><td>$1,150</td></tr>
+          <tr class="total"><td>Launch total</td><td>$16,991</td></tr>
+        </table>
+        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $1,400 operating insurance line — the two budgets don't double-count. All-in year-1 cash need: $17.0k launch + $19.5k equipment + $25.5k operating − $21.5k tuition ≈ <b>$40.5k net</b>, funded by sponsors/founder capital (the §07 "gap" numbers describe steady-state sessions; this is the year-1 cash picture). Worst case (cancel at T-4): ~$10k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Honest seams — the humans this plan refuses to remove</h3>
+    <p class="lede" style="margin-bottom:4px">Each seam is compressed to a single human decision, made once (or once a day), with everything else prepared by the stack:</p>
+    <ul class="seams">
+      <li><b>1 · County health inspector</b> — the organized-camp permit requires a human walk-through and sign-off at the venue. One meeting, T-2 weeks.</li>
+      <li><b>2 · Insurance broker</b> — the abuse &amp; molestation endorsement isn't self-serve on any API. One call, T-20 weeks.</li>
+      <li><b>3 · Background-check adjudication</b> — FCRA adverse-action review of any flagged candidate. A human reads, a human decides, per candidate.</li>
+      <li><b>4 · Venue deposit approval</b> — one decision on a shortlist of six. Money moves only after the click.</li>
+      <li><b>5 · The adults in the room</b> — 9 background-checked, trained humans on site every single day. This isn't overhead; it's the product.</li>
+      <li><b>6 · Medication &amp; incident command</b> — the director administers meds and owns every incident call. Never automatable, never delegated to software.</li>
+      <li><b>7 · Pickup authorization</b> — photo-ID match against the signed authorization record, at the door, every day. The robot never dismisses a child.</li>
+    </ul>
+
+    <h3 style="margin-top:36px">API reality check (audited Aug 2026)</h3>
+    <p class="lede" style="margin-bottom:16px">Every integration named in this plan, verified — including the ones that <em>don't</em> exist, because planning around a hallucinated API is how autonomous launches die:</p>
+    <table class="api">
+      <tr><th>Service</th><th>Status</th><th>Role in the launch</th></tr>
+      <tr><td>Stripe Atlas / Payment Links</td><td><span class="pill ok">verified API</span></td><td>Entity, EIN, banking; tuition collection &amp; refunds</td></tr>
+      <tr><td>DocuSign eSignature</td><td><span class="pill ok">verified API</span></td><td>Staff contracts, venue agreement, parent waivers</td></tr>
+      <tr><td>Thimble</td><td><span class="pill ok">verified API</span></td><td>General-liability bind (thimble.com/api) — base GL only; rider via broker</td></tr>
+      <tr><td>Checkr</td><td><span class="pill ok">verified API</span></td><td>Background checks; human adjudication seam</td></tr>
+      <tr><td>Deel</td><td><span class="pill ok">verified API</span></td><td>Contractor onboarding, agreements, payouts</td></tr>
+      <tr><td>Meta Marketing / Google Ads</td><td><span class="pill ok">verified APIs</span></td><td>Camper acquisition spend + automated kill rules</td></tr>
+      <tr><td>Typeform / Airtable / Twilio</td><td><span class="pill ok">verified APIs</span></td><td>Intake, database of record, parent comms</td></tr>
+      <tr><td>Digi-Key / Mouser</td><td><span class="pill ok">verified APIs</span></td><td>Programmatic electronics ordering (sensors, micro:bits, solder stock)</td></tr>
+      <tr><td>Peerspace / Tagvenue</td><td><span class="pill warn">no public API</span></td><td>Shortlist via scripted search + browser automation; booking &amp; deposit = human seam</td></tr>
+      <tr><td>Amazon Business</td><td><span class="pill warn">no public ordering API</span></td><td>Agent-assembled carts; one human checkout click for big-ticket equipment</td></tr>
+      <tr><td>Upwork hiring</td><td><span class="pill warn">restricted API</span></td><td>Agent-assisted posting via the UI; sourcing diversified to local boards</td></tr>
+    </table>
+    <p class="note">Correction for the record: an earlier draft cited "AB-2621" as the CA camp-licensing bill. Verified against leginfo — AB 2621 is not camp legislation (it's regional climate-planning in 2020, unemployment-insurance in 2022). The real anchors are HSC §1596.792 (child-care exemption), HSC §30800 et seq. + Title 22 (organized camps), and AB 506 (youth-org background checks + mandated-reporter training). This page keeps the receipts.</p>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
-    <p class="kicker">10 · FAQ</p>
+    <p class="kicker">11 · FAQ</p>
     <h2>The questions parents actually ask.</h2>
     <div class="faq">
       <details>
@@ -582,9 +790,9 @@
 <section id="contact">
   <div class="wrap">
     <div class="contact">
-      <p class="kicker">11 · Next step</p>
+      <p class="kicker">12 · Next step</p>
       <h2>Back the camp. Send a kid. Teach a day.</h2>
-      <p>We're seeking a host venue, two founding sponsors, and a first cohort of 24 producers for Summer 2027. This page is the short version — the full operating plan (staffing detail, insurance, day-by-day lesson plans, and partnership terms) is ready to share.</p>
+      <p>We're seeking a host venue, two founding sponsors, and a first cohort of 24 producers for Summer 2027. This page is the short version — curriculum, staffing, and the full launch plan (§10) with APIs, budget, and kill gates.</p>
       <p style="margin-top:20px"><a href="mailto:camp@example.org">camp@example.org</a> · [contact block — insert email / form / phone before publishing]</p>
       <div class="hero-actions" style="margin-top:28px">
         <a class="btn btn-primary" href="mailto:camp@example.org">Request the full proposal</a>
