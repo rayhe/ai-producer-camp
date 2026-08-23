@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ground Truth Summer Camp — Where Kids Learn to Do What AI Can't</title>
+<meta name="description" content="A two-week summer camp for ages 10–14. Kids become producers for AI projects — collecting real-world data, verifying facts, building physical things, and owning the outcomes AI can't.">
+<style>
+  :root{
+    --paper:#faf7f2;
+    --ink:#191714;
+    --ink-soft:#4a453e;
+    --rule:#d9d2c6;
+    --accent:#b04a17;
+    --accent-deep:#8a3a12;
+    --card:#ffffff;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --serif:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* kicker labels */
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h2{font-family:var(--serif);font-size:clamp(26px,4vw,36px);font-weight:600;line-height:1.15;margin-bottom:10px}
+  h3{font-family:var(--serif);font-size:21px;font-weight:600;margin-bottom:6px}
+  section{padding:64px 0;border-top:1px solid var(--rule)}
+  section:first-of-type{border-top:none}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:62ch;margin-bottom:28px}
+  p+p{margin-top:14px}
+
+  /* header/nav */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+  .brand{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--ink);letter-spacing:.01em}
+  .brand .dot{color:var(--accent)}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap;font-size:14px}
+  .nav-links a{color:var(--ink-soft);padding:6px 10px;border-radius:6px}
+  .nav-links a:hover{background:#eee8de;color:var(--ink);text-decoration:none}
+  .nav-cta{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:#fff !important;padding:8px 14px;border-radius:6px}
+  .nav-cta:hover{background:var(--accent-deep);text-decoration:none}
+
+  /* hero */
+  .hero{padding:88px 0 72px;background:
+    radial-gradient(1100px 480px at 82% -10%, rgba(176,74,23,.09), transparent 60%),
+    var(--paper)}
+  .hero h1{font-family:var(--serif);font-size:clamp(38px,6.4vw,68px);font-weight:700;line-height:1.05;letter-spacing:-.015em;max-width:15ch}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero .sub{font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);max-width:56ch;margin-top:22px}
+  .hero .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+  .hero .meta div{border-left:2px solid var(--accent);padding-left:12px}
+  .hero .meta strong{display:block;font-size:15px;color:var(--ink);letter-spacing:0;margin-top:2px}
+  .hero-actions{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:13px 22px;border-radius:8px}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-deep);text-decoration:none}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff;text-decoration:none}
+
+  /* thesis callout */
+  .callout{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:10px;padding:28px 30px;margin:8px 0 34px;font-family:var(--serif);font-size:20px;line-height:1.5}
+  .callout .mark{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:10px}
+
+  /* two-col */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  @media(max-width:820px){.cols{grid-template-columns:1fr}}
+
+  /* weakness table */
+  .weak{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+  .weak th,.weak td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+  .weak th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:#f1ece3;color:var(--ink-soft)}
+  .weak tr:last-child td{border-bottom:none}
+  .weak td:first-child{font-weight:600;white-space:nowrap}
+
+  /* schedule table */
+  .sched{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+  .sched td{padding:11px 16px;border-bottom:1px solid var(--rule)}
+  .sched tr:last-child td{border-bottom:none}
+  .sched td:first-child{font-family:var(--mono);font-size:13px;color:var(--accent);white-space:nowrap;width:110px}
+  .sched td:nth-child(2){font-weight:600;width:210px}
+
+  /* curriculum */
+  .week-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:42px 0 18px;flex-wrap:wrap}
+  .week-head:first-of-type{margin-top:0}
+  .week-head h3{font-size:24px;margin:0}
+  .week-head .wk{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .days{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:820px){.days{grid-template-columns:1fr}}
+  .day{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+  .day .dnum{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .day h4{font-family:var(--serif);font-size:20px;font-weight:650;line-height:1.2}
+  .day .bad{font-size:14px;color:var(--ink-soft);border-top:1px dashed var(--rule);padding-top:10px}
+  .day .bad strong{color:var(--accent-deep);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:3px}
+  .day ul{list-style:none;display:grid;gap:6px;font-size:15px}
+  .day ul li{padding-left:18px;position:relative}
+  .day ul li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+  .day .deliver{font-size:14px;background:#f4efe6;border-radius:6px;padding:8px 12px;margin-top:auto}
+  .day .deliver b{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* generic card grid */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.grid,.grid-3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:22px 24px}
+  .card .role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .card ul{margin:8px 0 0 18px;font-size:15px;color:var(--ink-soft)}
+
+  /* budget */
+  .budget{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+  .budget th,.budget td{padding:11px 16px;border-bottom:1px solid var(--rule);text-align:left}
+  .budget th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:#f1ece3;color:var(--ink-soft)}
+  .budget td:last-child,.budget th:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .budget tr.total td{font-weight:700;background:#f4efe6}
+  .budget tr:last-child td{border-bottom:none}
+  .budget .neg{color:var(--accent-deep)}
+
+  /* faq */
+  .faq{display:grid;gap:12px}
+  .faq details{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 22px}
+  .faq summary{font-weight:650;cursor:pointer;font-size:16.5px}
+  .faq details[open] summary{color:var(--accent-deep)}
+  .faq details p{margin-top:10px;color:var(--ink-soft);font-size:15.5px}
+
+  /* contact */
+  .contact{background:var(--ink);color:#f5f1e8;border-radius:14px;padding:52px 40px;margin-top:8px}
+  .contact h2{color:#fff}
+  .contact .kicker{color:#e8a87c}
+  .contact p{color:#cfc8bb;max-width:58ch}
+  .contact .btn-primary{background:var(--accent);color:#fff}
+  .contact a{color:#e8a87c}
+
+  footer.site{padding:36px 0 48px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  .note{font-size:14px;color:var(--ink-soft);font-style:italic;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">Ground Truth<span class="dot">·</span>Camp</a>
+    <nav class="nav-links">
+      <a href="#mission">Mission</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#day">A Day</a>
+      <a href="#capstone">Capstone</a>
+      <a href="#staff">Staff</a>
+      <a href="#budget">Budget</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Back the camp</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">Program proposal · Summer 2027 · Ages 10–14</p>
+    <h1>AI can make almost anything. It can't <em>check</em> anything. We teach kids the second half.</h1>
+    <p class="sub"><strong>Ground Truth Summer Camp</strong> is a two-week day camp where kids become <strong>producers</strong> for AI projects — the humans who collect real data, verify claims, build the physical thing, exercise judgment, and put their name on the result. Every day, campers do the exact work AI is demonstrably, almost magically bad at.</p>
+    <div class="meta">
+      <div>Format<strong>10 weekday sessions</strong></div>
+      <div>Cohort<strong>24 campers</strong></div>
+      <div>Ratio<strong>1 instructor : 6 kids</strong></div>
+      <div>Hours<strong>9:00 AM – 4:00 PM</strong></div>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#curriculum">See the 10-day curriculum</a>
+      <a class="btn btn-ghost" href="#contact">Get the full proposal</a>
+    </div>
+  </div>
+</section>
+
+<section id="mission">
+  <div class="wrap">
+    <p class="kicker">01 · Mission</p>
+    <h2>Raise producers, not prompters.</h2>
+    <p class="lede">The scarcest skill of the next decade isn't prompting an AI. It's knowing — with evidence — when the AI is wrong. Kids today grow up as native consumers of generated content. Nobody is teaching them to be the verifier, the builder, the person accountable for the output. That's this camp's entire reason to exist.</p>
+
+    <div class="callout">
+      <span class="mark">The thesis</span>
+      Generative AI can produce a plausible anything — a photo, a fact, a 3D model, a sympathetic sentence. What it cannot do is go outside, touch the object, interview the person, measure the claim, notice that it's wrong, or take responsibility when it is. Those aren't bugs to fix; they're the permanent human share of the work. We train kids for that share — on purpose, with real tools, for real stakes.
+    </div>
+
+    <div class="cols">
+      <div>
+        <h3>What a producer does</h3>
+        <p>On a real AI project, the producer sets the goal, feeds the model real data, runs the quality gates, fixes what the machine gets wrong, and signs their name to the final product. It's the highest-leverage, least-automable role on the team. Our campers practice every piece of that job at kid scale: they direct AI tools constantly — but the deliverables only ship if <em>they</em> collected the data, checked the facts, tested the object, and can defend the result.</p>
+      </div>
+      <div>
+        <h3>Why ages 10–14</h3>
+        <p>This is the age when kids form their default relationship with technology. They're old enough to use real tools — cameras, calipers, 3D printers, soldering irons (supervised), interview recorders — and young enough that "the computer said so" hasn't yet hardened into an assumption. We catch them right before it does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <p class="kicker">02 · Why now</p>
+    <h2>The generation being raised on AI output has no training in AI's failure modes.</h2>
+    <p class="lede">By 2026, school-age kids routinely meet generated text, images, and voices before they meet the verified kind. Meanwhile, every working professional knows the new bottleneck: generation is cheap, <strong>ground truth is expensive</strong>. The adults who thrive are the ones who can produce and verify. The kids who learn it at eleven will run circles around the ones who learn it at twenty-five.</p>
+    <table class="weak">
+      <tr><th>What AI is magically bad at</th><th>What that means in practice</th><th>Where campers do it</th></tr>
+      <tr><td>Knowing the real world</td><td>It can't take a photo, feel a wobble, or smell a burnt motor. Its "facts" about today are stale or invented.</td><td>Days 2–4 · data collection &amp; sensors</td></tr>
+      <tr><td>Checking its own work</td><td>It states falsehoods with total confidence — numbers, quotes, citations — and cannot notice.</td><td>Days 1, 3, 8 · verification &amp; QC</td></tr>
+      <tr><td>Making physical things</td><td>It can describe a bracket; it cannot hold one. Generated designs fail on real tolerances and real loads.</td><td>Days 5, 7, 9 · fabrication &amp; robotics</td></tr>
+      <tr><td>Judging taste</td><td>It optimizes for average, not for right. It cannot tell "correct" from "good."</td><td>Days 1, 8, 10 · taste panels</td></tr>
+      <tr><td>Understanding people</td><td>It simulates empathy from text. It can't sit across from a human and earn a real answer.</td><td>Day 6 · interviews</td></tr>
+      <tr><td>Being accountable</td><td>No AI can take responsibility for a failure. Someone human always has to.</td><td>Every day; formally Day 9</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="curriculum">
+  <div class="wrap">
+    <p class="kicker">03 · Curriculum</p>
+    <h2>Ten days, two arcs: collect the truth, then produce with it.</h2>
+    <p class="lede">Week 1 is <strong>Ground Truth</strong> — going into the field and the workshop to gather and check what AI can't. Week 2 is <strong>The Producer's Chair</strong> — directing AI tools on real projects and owning every result. Every day names the weakness it attacks, runs an AM and PM block, and ends with a shipped deliverable. AI tools are used daily — always as the assistant, never the author.</p>
+
+    <div class="week-head">
+      <h3>Week 1 · Ground Truth</h3>
+      <span class="wk">Days 1–5 · the world AI can't touch</span>
+    </div>
+    <div class="days">
+
+      <article class="day">
+        <span class="dnum">Day 1 · Monday</span>
+        <h4>The Blind Taste Test</h4>
+        <ul>
+          <li><b>AM — The Gauntlet:</b> campers judge 20 unlabeled artifacts (AI vs. human: photos, essays, poems, product designs) and vote on which is which. Reveal: even the machines' biggest fans were wrong half the time.</li>
+          <li><b>PM — Failure Autopsy:</b> dissect real AI disasters — invented citations, six-fingered hands, confidently wrong history. Campers build the camp's shared rubric: <em>how do we know something is true?</em></li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI has no idea when it's wrong. Neither, yet, do we. Today fixes the second part.</div>
+        <div class="deliver"><b>Deliverable</b> · Personal "producer's checklist" + team truth-rubric poster hung on the lab wall</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 2 · Tuesday</span>
+        <h4>Data Safari</h4>
+        <ul>
+          <li><b>AM — Field Kit Issue:</b> cameras, mics, clipboards. Teams get a mission (e.g., "document every plant species on the block") and shoot a labeled 150-photo dataset — angles, lighting, edge cases, the boring stuff models never see.</li>
+          <li><b>PM — Label Party:</b> tag the morning's data, then ask an image model to identify the same plants. Grade it against the labels. Every miss goes on the Wall of Almost.</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI only knows the world from data humans collected. Fresh, local, weird reality is invisible to it.</div>
+        <div class="deliver"><b>Deliverable</b> · A cleaned, labeled, human-verified dataset (first entry in each camper's portfolio)</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 3 · Wednesday</span>
+        <h4>The Verification Bureau</h4>
+        <ul>
+          <li><b>AM — Claim Intake:</b> campers receive a stack of AI-generated "facts" about their own town (population, history, who founded the school, what's at the corner of Main &amp; 3rd). They rank confidence, then hit the field with measuring tape and questions.</li>
+          <li><b>PM — The Report:</b> each team publishes a verdict per claim: verified / busted / unverifiable — with evidence: photos, measurements, a primary source. They learn the hardest phrase in the producer's vocabulary: <em>"we couldn't confirm it."</em></li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI states invented specifics with total confidence and cannot check a single one.</div>
+        <div class="deliver"><b>Deliverable</b> · Evidence-backed verification report on 10 AI claims, ≥3 field-measured</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 4 · Thursday</span>
+        <h4>Sensors &amp; Signal</h4>
+        <ul>
+          <li><b>AM — Build the Instrument:</b> solder-and-program a micro:bit weather/noise/light station (supervised, kid-safe). Sensors are how machines touch the world — campers build the touching part.</li>
+          <li><b>PM — Logging the Invisible:</b> deploy stations around the venue; record real temperature, sound, and light data through the afternoon. Compare the day's actuals against an AI's confident morning "forecast." Discuss: why is fresh measured data worth more than a fluent prediction?</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI has no senses. It can't take today's temperature, and it can't be trusted to guess it.</div>
+        <div class="deliver"><b>Deliverable</b> · Working sensor station + 24-hour logged dataset graphed by hand</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 5 · Friday</span>
+        <h4>Fabrication Friday</h4>
+        <ul>
+          <li><b>AM — Ask the Machine:</b> campers prompt an AI to design a phone stand / pencil holder / hinge bracket, then print it as-is on the lab 3D printers. No edits allowed.</li>
+          <li><b>PM — Reality Check:</b> test the prints: do they fit the phone? Survive a drop? Hold a door? Catalog the failures (tolerances, thin walls, fantasy geometry), then redesign by hand in CAD, reprint, and retest. The before/after pair goes in the portfolio.</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI describes objects it has never held. Physics doesn't read the prompt.</div>
+        <div class="deliver"><b>Deliverable</b> · Failed AI print + fixed human revision, presented side by side</div>
+      </article>
+
+    </div>
+
+    <div class="week-head">
+      <h3>Week 2 · The Producer's Chair</h3>
+      <span class="wk">Days 6–10 · direct the machine, own the outcome</span>
+    </div>
+    <div class="days">
+
+      <article class="day">
+        <span class="dnum">Day 6 · Monday</span>
+        <h4>The Interview Room</h4>
+        <ul>
+          <li><b>AM — Question Craft:</b> campers draft interview questions for a visiting guest (a veteran, a shop owner, a grandparent). Then test them twice: once asked by the camper, once asked by an AI chatbot. Compare what a real human actually tells you.</li>
+          <li><b>PM — The Recording:</b> conduct and record 10-minute oral-history interviews in pairs; capture audio, transcribe, and mark the moments — hesitation, laughter, the follow-up that earned the story. AI can simulate an answer. It cannot earn one.</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI's "empathy" is pattern-matched text. Trust is built in person, in a pause, with eye contact.</div>
+        <div class="deliver"><b>Deliverable</b> · Edited 3-minute oral-history piece with the AI-vs-human question comparison</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 7 · Tuesday</span>
+        <h4>Robotics Gauntlet</h4>
+        <ul>
+          <li><b>AM — Program the Wanderer:</b> teams code rover robots to navigate a real obstacle course (ramps, tunnels, a "swamp" of packing peanuts). Every plan meets friction, literally.</li>
+          <li><b>PM — The Gauntlet Runs:</b> timed trials. When the rover flips or gets lost, the AI's suggested route and the actual course diverge — campers debug the physical world: wheel slip, sensor drift, tape that reflects wrong. Spatial truth beats simulation.</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI reasons about space from text. It has never turned a corner, slipped on cardboard, or recovered from a flip.</div>
+        <div class="deliver"><b>Deliverable</b> · Gauntlet completion video + debugging log of every real-world fix</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 8 · Wednesday</span>
+        <h4>The Taste Panel</h4>
+        <ul>
+          <li><b>AM — Curate the Show:</b> the cohort faces the week's full pile of AI-assisted work and must choose what deserves the showcase wall. Campers run structured taste panels: score each piece against their Day 1 rubric, argue, defend, cut.</li>
+          <li><b>PM — Set the Bar:</b> teams write actual QC gates for their capstones ("ships only if it passes X"). Guest judge (local maker/teacher) test-drives the rubric and tries to sneak bad work past it.</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI averages all taste into mush. "Correct" is common; "good" is a judgment call someone has to make.</div>
+        <div class="deliver"><b>Deliverable</b> · Written QC gate for each capstone + curated shortlist with panel scorecards</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 9 · Thursday</span>
+        <h4>Ship Day</h4>
+        <ul>
+          <li><b>AM — Produce:</b> final capstone build sprints. Every team finishes a complete artifact — verified data story, printed object, interview piece, or rover demo — using AI where it helps and replacing it where it fails.</li>
+          <li><b>PM — Sign Your Name:</b> each team publishes a producer's credit roll: what the AI did, what the humans did, what went wrong, and who fixed it. Accountability isn't a lecture — it's the last page of every project.</li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>No model can be responsible for an outcome. Campers learn responsibility is the feature, not the tax.</div>
+        <div class="deliver"><b>Deliverable</b> · Shipped capstone + signed producer's credit: humans, machine, failures, fixes</div>
+      </article>
+
+      <article class="day">
+        <span class="dnum">Day 10 · Friday</span>
+        <h4>Showcase Night</h4>
+        <ul>
+          <li><b>AM — Gallery Build:</b> campers install the exhibition: datasets, prints, sensor graphs, interview audio, the Wall of Almost, and the failed-print museum. Every display explains <em>what the AI couldn't do and who did it instead.</em></li>
+          <li><b>PM — Parents' Night:</b> families tour the gallery. Each camper stands at their station for 4 minutes: show the work, name the weakness, prove the check. The evening ends with the taste-panel awards and diplomas: <em>Producer of AI Projects, Certified Human.</em></li>
+        </ul>
+        <div class="bad"><strong>The weakness attacked</strong>AI can't explain itself to your parents. These kids can explain anything they shipped.</div>
+        <div class="deliver"><b>Deliverable</b> · Public showcase + capstone portfolio taken home by every camper</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="day">
+  <div class="wrap">
+    <p class="kicker">04 · A day at camp</p>
+    <h2>Roughly half screen, half world — and the world wins ties.</h2>
+    <table class="sched">
+      <tr><td>9:00</td><td>Drop-off &amp; warm-up</td><td>Board-game hour, tools check-out, producer's journal opened</td></tr>
+      <tr><td>9:15</td><td>Morning circle</td><td>"AI Fail of the Day" — a real, recent AI blunder, dissected in 5 minutes</td></tr>
+      <tr><td>9:30</td><td>AM block</td><td>Deep work: field mission, build, or studio (per curriculum)</td></tr>
+      <tr><td>12:00</td><td>Lunch &amp; recess</td><td>Outside, devices down, actual sun</td></tr>
+      <tr><td>1:00</td><td>PM block</td><td>Second half: testing, judging, shipping the day's deliverable</td></tr>
+      <tr><td>3:30</td><td>Debrief &amp; log</td><td>Teams log evidence, update the Wall of Almost, set tomorrow's mission</td></tr>
+      <tr><td>4:00</td><td>Pickup</td><td>Extended day to 5:30 available (quiet build / games)</td></tr>
+    </table>
+    <p class="note">Safety: all staff background-checked and first-aid certified; 1:6 supervision; tool use (soldering, cutting, printers) is demo-gated and supervised; off-site field missions use 1:4 buddy ratios and signed waivers. Camp is nut-aware; all medications held by the camp director.</p>
+  </div>
+</section>
+
+<section id="capstone">
+  <div class="wrap">
+    <p class="kicker">05 · Capstone</p>
+    <h2>Every camper leaves with proof they did what the machine couldn't.</h2>
+    <p class="lede">The capstone isn't a diorama — it's a small, real production with an AI in the crew and a kid in charge. Teams of four pick one track and ship it at Showcase Night:</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="role">Track A · The Field Guide</div>
+        <h3>Verified local dataset</h3>
+        <p>A human-collected, human-verified dataset of the neighborhood (species, sounds, measurements) — with a model graded against it and every miss explained.</p>
+      </div>
+      <div class="card">
+        <div class="role">Track B · The Object</div>
+        <h3>Fabricated thing</h3>
+        <p>A physical product born from an AI design, rescued by human engineering: original prompt, failed print, fixed revision, load test on video.</p>
+      </div>
+      <div class="card">
+        <div class="role">Track C · The Story</div>
+        <h3>Human-sourced piece</h3>
+        <p>An oral-history audio piece no model could record — a real interview, edited, fact-checked, and published with a producer's credit roll.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px">Every capstone ships with the same final artifact: the <strong>credit roll</strong> — one page naming what the AI did, what the humans did, what failed, and who fixed it. Parents don't just see the project; they see their kid taking responsibility for a machine's work. That page is the diploma.</p>
+  </div>
+</section>
+
+<section id="staff">
+  <div class="wrap">
+    <p class="kicker">06 · Staff</p>
+    <h2>Five humans AI can't replace, on purpose.</h2>
+    <p class="lede">Roles first, names at hire. Each instructor owns one week-1 or week-2 spine and floats across both. Target: licensed educators and working makers with maker-space or lab experience; every hire background-checked, first-aid certified, and trained on our supervision and tool-safety protocols.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="role">Camp Director / Lead Producer</div>
+        <h3>Runs the whole production</h3>
+        <p>Experienced educator or informal-education director. Owns safety, families, schedule, and the daily "AI Fail of the Day." The accountable adult — modeling the camp's core value at org scale.</p>
+      </div>
+      <div class="card">
+        <div class="role">Data Naturalist</div>
+        <h3>Owns Days 2–4</h3>
+        <p>Field-biology or data background. Leads data safaris, sensor builds, and the Verification Bureau. Teaches kids that a measurement beats an opinion, and an evidence trail beats both.</p>
+      </div>
+      <div class="card">
+        <div class="role">Maker-in-Residence</div>
+        <h3>Owns Days 5 &amp; 9</h3>
+        <p>Working fabricator / shop teacher. Runs CAD, printers, and the failed-print museum. Teaches tolerances, test protocols, and the pride of fixing what a machine flubbed.</p>
+      </div>
+      <div class="card">
+        <div class="role">Story &amp; Judgment Lead</div>
+        <h3>Owns Days 1, 6 &amp; 8</h3>
+        <p>Journalist, librarian, or documentary background. Runs taste panels, interview training, and the verification rubric. Teaches the difference between fluent and true.</p>
+      </div>
+      <div class="card">
+        <div class="role">Robotics &amp; Wiring Lead</div>
+        <h3>Owns Day 7 + tech ops</h3>
+        <p>Robotics-club coach or engineer. Runs the gauntlet, keeps the fleet alive, and manages the camp's device/laptop cart and AI tool accounts.</p>
+      </div>
+      <div class="card">
+        <div class="role">CIT crew · 4 teens</div>
+        <h3>Alumni-style counselors-in-training</h3>
+        <p>Local high schoolers (16+) who manage materials, buddy-ratios on field missions, and the Wall of Almost. A ladder: campers at 12, CITs at 16, instructors at 22.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="budget">
+  <div class="wrap">
+    <p class="kicker">07 · Budget sketch</p>
+    <h2>Honest math for one two-week session.</h2>
+    <p class="lede">24 campers × $895 tuition. Equipment is a one-time startup cost (amortized over 3 summers); the operating table shows a single session. Moderate gap in year one closes via sponsorships and a donor-funded scholarship bench — target 20% of seats.</p>
+    <div class="cols">
+      <div>
+        <h3>Per-session operating</h3>
+        <table class="budget">
+          <tr><th>Line</th><th>Cost</th></tr>
+          <tr><td>Instructors (5) + CIT stipends, 2 weeks</td><td>$15,500</td></tr>
+          <tr><td>Venue (makerspace + classroom + yard)</td><td>$4,800</td></tr>
+          <tr><td>Materials &amp; consumables</td><td>$2,200</td></tr>
+          <tr><td>Insurance, licensing, first aid</td><td>$1,400</td></tr>
+          <tr><td>AI tool licenses + printing filament/supplies</td><td>$900</td></tr>
+          <tr><td>Snacks, field-mission transport</td><td>$700</td></tr>
+          <tr class="total"><td>Total operating</td><td>$25,500</td></tr>
+          <tr><td>Tuition revenue (24 × $895)</td><td class="neg">$21,480</td></tr>
+          <tr class="total"><td>Gap per session (year 1)</td><td class="neg">$4,020</td></tr>
+        </table>
+        <p class="note">Gap strategy: two local sponsorships ($2.5k each) named on the Showcase Wall, plus a $5k foundation ask for the scholarship bench. Year 2 adds a second session, spreading staff and venue across four weeks.</p>
+      </div>
+      <div>
+        <h3>One-time startup (year 1)</h3>
+        <table class="budget">
+          <tr><th>Line</th><th>Cost</th></tr>
+          <tr><td>3D printers ×3 + filament stock</td><td>$3,600</td></tr>
+          <tr><td>Rover robotics kits ×6</td><td>$2,400</td></tr>
+          <tr><td>micro:bit sensor kits ×24</td><td>$1,700</td></tr>
+          <tr><td>Cameras, mics, tripods, field kits ×6</td><td>$2,800</td></tr>
+          <tr><td>Laptop cart (12 refurbished)</td><td>$5,400</td></tr>
+          <tr><td>Shop tools, storage, safety gear</td><td>$2,100</td></tr>
+          <tr><td>Marketing, website, licensing setup</td><td>$1,500</td></tr>
+          <tr class="total"><td>Total startup</td><td>$19,500</td></tr>
+        </table>
+        <p class="note">All equipment is reusable across sessions and years; the sensor kits and one rover set become the camper take-home portfolio pieces each summer via sponsorship funds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="venue">
+  <div class="wrap">
+    <p class="kicker">08 · Venue &amp; equipment</p>
+    <h2>A makerspace with a yard, two blocks from reality.</h2>
+    <p class="lede">The camp needs a room AI has never been in — with a door that opens onto the world it can't see.</p>
+    <div class="cols">
+      <div class="card">
+        <div class="role">Space</div>
+        <ul>
+          <li>Makerspace / STEM lab: 1,500+ sq ft with 6 build tables and power drops</li>
+          <li>Separate quiet room for interviews and taste panels</li>
+          <li>Secure outdoor yard or adjacent park access for data safaris and rover gauntlet</li>
+          <li>Walkable neighborhood (0.25 mi) for Day 3 field verification missions</li>
+          <li>Gallery wall space for the Showcase Night exhibition</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="role">Equipment</div>
+        <ul>
+          <li>3× FDM 3D printers + ventilation enclosure + filament stock</li>
+          <li>6× rover robotics kits (programmable, sensor-equipped)</li>
+          <li>24× micro:bit sensor kits (temp / light / sound, USB rechargeable)</li>
+          <li>6× field kits: camera, lav mic, recorder, calipers, clipboard, chalk</li>
+          <li>12-laptop cart with AI tool accounts + content filters</li>
+          <li>Shop basics: hand tools, soldering stations (supervised), first-aid, PPE</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metrics">
+  <div class="wrap">
+    <p class="kicker">09 · Success metrics</p>
+    <h2>We measure the skill, not the vibe.</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="role">Camper growth</div>
+        <ul>
+          <li>Pre/post assessment: verify-or-trust a set of AI claims — target +40% accuracy on "checked it and here's the evidence"</li>
+          <li>100% of campers ship a capstone with a completed credit roll</li>
+          <li>Rubric-scored judgment: taste-panel scores align with instructor panel by Day 8</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="role">Family verdict</div>
+        <ul>
+          <li>Parent NPS ≥ 60 at Showcase Night exit survey</li>
+          <li>≥ 70% of families say camper "talks about checking AI output at home" (the dinner-table test)</li>
+          <li>≥ 50% re-enroll or refer for Summer 2028</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="role">Program health</div>
+        <ul>
+          <li>Enrollment: 24 campers, waitlist ≥ 8 by May 1</li>
+          <li>Safety: zero unsupervised tool incidents; all field missions 1:4 ratio, no exceptions</li>
+          <li>Financial: sponsorship + scholarship bench fully funded before session 1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="kicker">10 · FAQ</p>
+    <h2>The questions parents actually ask.</h2>
+    <div class="faq">
+      <details>
+        <summary>Does my kid need AI or coding experience?</summary>
+        <p>None. We assume zero on Day 1 and teach every tool from the button up. The camp's core skills — observing, checking, building, asking, deciding — need no prerequisites. Kids who already code get harder variants of every mission.</p>
+      </details>
+      <details>
+        <summary>Wait — is this two weeks of screens?</summary>
+        <p>The opposite. Roughly half of every day is outside or at a workbench: walking the block with a camera, soldering a sensor, testing prints, flying rovers through an obstacle course. AI tools appear constantly, but as the thing being directed, checked, and out-performed — not the destination.</p>
+      </details>
+      <details>
+        <summary>Soldering irons and 3D printers at age 10?</summary>
+        <p>Every tool is introduced with a supervised demonstration and a safety gate a camper must pass before solo use (always within arm's reach of an instructor). Heated tools run at supervised stations with ventilation and PPE. Our Robotics &amp; Wiring Lead owns tool safety; the ratio never drops below 1:6.</p>
+      </details>
+      <details>
+        <summary>Which AI tools do you use, and are they safe for kids?</summary>
+        <p>School-managed accounts on mainstream, kid-safe AI tools (image generation, chat, CAD assistants) with content filtering on, no personal data entered, and strict "we don't feed it our faces or friends' names" rules taught on Day 2. Accounts are camp-owned and wiped at session end.</p>
+      </details>
+      <details>
+        <summary>What does my kid actually take home?</summary>
+        <p>A producer's portfolio: their verified dataset, the failed print and its human-fixed twin, sensor graphs, interview audio, the debugging log, and the signed credit roll — plus a diploma reading <em>Producer of AI Projects, Certified Human.</em></p>
+      </details>
+      <details>
+        <summary>Is there financial aid?</summary>
+        <p>Yes — a donor-funded scholarship bench covers 20% of seats (5 of 24), prioritized through local school partners. Application is one short form; decisions are need-blind and made before enrollment closes.</p>
+      </details>
+      <details>
+        <summary>Why "producers" and not "prompt engineers"?</summary>
+        <p>Prompting is a technique; producing is a job. A producer owns the outcome: the data, the checks, the fixes, and the blame when it's wrong. Prompting is one arrow in that quiver — we teach all ten.</p>
+      </details>
+      <details>
+        <summary>What if AI gets better at all this by 2027?</summary>
+        <p>Then the curriculum sharpens — the weakness list is re-audited each spring and days are rebuilt around whatever AI is currently worst at. The mission outlives any specific failure mode: the human who verifies, builds, and takes responsibility stays essential. (Also: we'll believe the demo when we can check it. That's the whole camp.)</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <p class="kicker">11 · Next step</p>
+      <h2>Back the camp. Send a kid. Teach a day.</h2>
+      <p>We're seeking a host venue, two founding sponsors, and a first cohort of 24 producers for Summer 2027. This page is the short version — the full operating plan (staffing detail, insurance, day-by-day lesson plans, and partnership terms) is ready to share.</p>
+      <p style="margin-top:20px"><a href="mailto:camp@example.org">camp@example.org</a> · [contact block — insert email / form / phone before publishing]</p>
+      <div class="hero-actions" style="margin-top:28px">
+        <a class="btn btn-primary" href="mailto:camp@example.org">Request the full proposal</a>
+        <a class="btn btn-ghost" style="border-color:#f5f1e8;color:#f5f1e8" href="#curriculum">Re-read the curriculum</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site wrap">
+  <span>GROUND TRUTH SUMMER CAMP · PROGRAM PROPOSAL · SUMMER 2027</span>
+  <span>WALL OF ALMOST → PRODUCERS OF RECORD</span>
+</footer>
+
+</body>
+</html>
