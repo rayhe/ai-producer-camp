@@ -292,7 +292,7 @@
           <li><b>PM — Logging the Invisible:</b> deploy stations around the venue; record real temperature, sound, and light data through the afternoon. Compare the day's actuals against an AI's confident morning "forecast." Discuss: why is fresh measured data worth more than a fluent prediction?</li>
         </ul>
         <div class="bad"><strong>The weakness attacked</strong>AI has no senses. It can't take today's temperature, and it can't be trusted to guess it.</div>
-        <div class="deliver"><b>Deliverable</b> · Working sensor station + 24-hour logged dataset graphed by hand</div>
+        <div class="deliver"><b>Deliverable</b> · Working sensor station + overnight logged dataset graphed by hand (sensors deploy Day 4 PM; data harvested and graphed Day 5 AM before Fabrication begins)</div>
       </article>
 
       <article class="day">
@@ -421,6 +421,7 @@
     <p class="kicker">06 · Staff</p>
     <h2>Five humans AI can't replace, on purpose.</h2>
     <p class="lede">Roles first, names at hire. Each instructor owns one week-1 or week-2 spine and floats across both. Target: licensed educators and working makers with maker-space or lab experience; every hire background-checked, first-aid certified, and trained on our supervision and tool-safety protocols.</p>
+    <p class="note" style="margin-top:12px"><b>Age-differentiation model (10–14 range):</b> The four-year spread within the cohort is bridged through tiered challenge variants, not separate tracks. Each day's mission ships with a base version (accessible at 10) and an extension layer (expected at 13–14): e.g., Day 2's photo dataset uses GPS tagging for juniors and adds metadata schema design for seniors; Day 5's CAD redesign uses guided templates for 10-year-olds and freeform modeling for 14-year-olds; Day 7's rover gauntlet adds autonomous waypoint navigation for the older cohort. CITs (16+) provide peer scaffolding for younger campers. Kids who already code get harder variants of every mission — the rubric scales, the thesis doesn't.</p>
     <div class="grid">
       <div class="card">
         <div class="role">Camp Director / Lead Producer</div>
@@ -621,7 +622,7 @@
         <span class="ph-meta">~6 weeks (overlaps P2) · ~$1,500 platform + comp budget</span>
       </div>
       <ul>
-        <li><b>Deel API</b> — contractor agreements, onboarding docs, and payouts for all 9 staff, end-to-end (~$49/contractor/mo). <span class="pill ok">verified API</span></li>
+        <li><b>Deel API</b> — contractor agreements, onboarding docs, and payouts for all 9 staff, end-to-end (~$49/contractor/mo). <span class="pill ok">verified API</span> <span class="pill warn">⚠ AB5 flag</span> <em>California's ABC test (AB5, Labor Code §2775) likely classifies camp instructors as employees, not contractors — they work on-site, on schedule, delivering the entity's core service (prong B fail). If reclassified as W-2 employees, Deel contractor mode is the wrong tool; switch to a payroll provider (Gusto, ADP) and budget +20-25% for employer-side taxes and mandatory workers' compensation insurance. Verify with employment counsel before launch.</em></li>
         <li>Sourcing: Upwork is <b>flagged honestly — its hiring API is restricted</b> (enterprise/managed access, not open for automated posting). <span class="pill warn">restricted API</span> Fallback that works: agent-assisted posting + invites through the UI, plus local maker-space and school job boards.</li>
         <li>Screening: async video interviews transcribed by a speech-to-text API and scored against a published rubric (kid-safety judgment ranked above technical skill); reference calls scheduled by Twilio; rankings in Airtable.</li>
         <li><b>Adjudication seam:</b> any flagged background check goes to a human decision (FCRA adverse-action review). No auto-reject, ever.</li>
@@ -708,9 +709,10 @@
           <tr><td>Typeform ×3mo</td><td>$150</td></tr>
           <tr><td>Airtable ×3mo + Twilio</td><td>$356</td></tr>
           <tr><td>Freight/spares + contingency</td><td>$1,150</td></tr>
-          <tr class="total"><td>Launch total</td><td>$16,991</td></tr>
+          <tr><td>Workers' comp insurance (if W-2, see AB5 flag) ⚠</td><td>$800–1,500</td></tr>
+          <tr class="total"><td>Launch total</td><td>$17,791–18,491</td></tr>
         </table>
-        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $1,400 operating insurance line — the two budgets don't double-count. All-in year-1 cash need: $17.0k launch + $19.5k equipment + $25.5k operating − $21.5k tuition ≈ <b>$40.5k net</b>, funded by sponsors/founder capital (the §07 "gap" numbers describe steady-state sessions; this is the year-1 cash picture). Worst case (cancel at T-4): ~$10k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
+        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $1,400 operating insurance line — the two budgets don't double-count. All-in year-1 cash need: $17.8–18.5k launch + $19.5k equipment + $25.5k operating − $21.5k tuition ≈ <b>$41.3–42k net</b>, funded by sponsors/founder capital (the §07 "gap" numbers describe steady-state sessions; this is the year-1 cash picture). Workers' comp line is contingent on W-2 classification (see AB5 flag above); if instructors are correctly classified as employees under the ABC test, this is mandatory in California. Worst case (cancel at T-4): ~$10k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
       </div>
     </div>
 
