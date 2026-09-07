@@ -101,6 +101,16 @@
   .day ul li::before{content:"–";position:absolute;left:0;color:var(--accent)}
   .day .deliver{font-size:14px;background:#f4efe6;border-radius:6px;padding:8px 12px;margin-top:auto}
   .day .deliver b{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .day .run{width:100%;border-collapse:collapse;font-size:14px;margin:2px 0 4px}
+  .day .run td{padding:7px 8px;border-bottom:1px dashed var(--rule);vertical-align:top}
+  .day .run tr:last-child td{border-bottom:none}
+  .day .run td:first-child{font-family:var(--mono);font-size:12px;color:var(--accent);white-space:nowrap;width:96px}
+  .day .mat,.day .proj{font-size:14px;border-top:1px dashed var(--rule);padding-top:10px;margin-top:4px}
+  .day .mat strong,.day .proj b{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .day .mat strong{color:var(--accent-deep)}
+  .day .mat ul{margin-bottom:2px}
+  .day .proj{background:#eef4ee;border-radius:6px;padding:10px 12px}
+  .day .proj b{color:#1e6b3a}
 
   /* generic card grid */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -170,7 +180,7 @@
     <nav class="nav-links">
       <a href="#mission">Mission</a>
       <a href="#curriculum">Curriculum</a>
-      <a href="#day">A Day</a>
+      <a href="#day">The hour</a>
       <a href="#capstone">Capstone</a>
       <a href="#staff">Staff</a>
       <a href="#budget">Budget</a>
@@ -244,67 +254,160 @@
   <div class="wrap">
     <p class="kicker">03 · Curriculum</p>
     <h2>Ten days, two arcs: collect the truth, then produce with it.</h2>
-    <p class="lede">Week 1 is <strong>Ground Truth</strong>, going into the field and the workshop to gather and check what AI can't. Week 2 is <strong>The Producer's Chair</strong>, directing AI tools on real projects and owning every result. Every day names the weakness it attacks, runs an AM and PM block, and ends with a shipped deliverable. AI tools are used daily, always as the assistant, never the author.</p>
+    <p class="lede">Week 1 is <strong>Ground Truth</strong>, going into the field and the workshop to gather and check what AI can't. Week 2 is <strong>The Producer's Chair</strong>, directing AI tools on real projects and owning every result. Every day names the weakness it attacks, runs a 60-minute instructor-led lesson with a minute-by-minute run-of-show, and continues into a 45-minute self-directed project block with a printed handout. AI tools are used daily, always as the assistant, never the author.</p>
 
     <div class="week-head">
       <h3>Week 1 · Ground Truth</h3>
-      <span class="wk">Days 1–5 · the world AI can't touch</span>
+      <span class="wk">Days 1-5 · the world AI can't touch</span>
     </div>
+    <p class="note" style="margin-bottom:18px">Each day is one 60-minute instructor-led lesson with a minute-by-minute run-of-show, followed by a 45-minute self-directed project block campers complete from a printed handout. The project blocks need no adult: the handout, the answer key, and the wall rubric do the supervising. Every day also lists its exact materials and a prep checklist completable by one person in 30 minutes.</p>
     <div class="days">
 
       <article class="day">
         <span class="dnum">Day 1 · Monday</span>
         <h4>The Blind Taste Test</h4>
-        <ul>
-          <li><b>AM, The Gauntlet:</b> campers judge 20 unlabeled artifacts (AI vs. human: photos, essays, poems, product designs) and vote on which is which. Reveal: even the machines' biggest fans were wrong half the time.</li>
-          <li><b>PM, Failure Autopsy:</b> dissect real AI disasters, invented citations, six-fingered hands, confidently wrong history. Campers build the camp's shared rubric: <em>how do we know something is true?</em></li>
-        </ul>
+        <table class="run">
+          <tr><td>0:00-0:10</td><td><b>Open.</b> Welcome, camp rules in three minutes, then the "AI Fail of the Day": one real, recent blunder dissected in five. Teams of four assigned; seats set for the session.</td></tr>
+          <tr><td>0:10-0:40</td><td><b>The Gauntlet.</b> Each team gets a tray of 20 unlabeled artifacts (photos, essays, poems, product designs; half AI-made, half human). Campers vote human-or-AI on answer cards. The instructor circulates and asks the dangerous question: "What made you sure?"</td></tr>
+          <tr><td>0:40-0:55</td><td><b>Reveal + rubric build.</b> Answers revealed team by team. The shock is the point: confident guesses land near 50%. The group writes the camp's shared rubric, "How do we know something is true?", on the poster that hangs on the lab wall all session.</td></tr>
+          <tr><td>0:55-1:00</td><td><b>Handoff.</b> Each camper gets a laminated Producer's Checklist and the project-block handout. Crew resets the trays.</td></tr>
+        </table>
+        <div class="mat"><strong>Materials, 12 campers, pre-kitted</strong>
+          <ul>
+            <li>5 artifact trays x 20 pre-printed, numbered cards (100 cards total)</li>
+            <li>12 answer cards + 12 laminated producer checklists</li>
+            <li>Truth-rubric poster board + 4 markers</li>
+            <li>1 pre-loaded "AI Fail of the Day" slide (instructor laptop)</li>
+          </ul>
+        </div>
+        <div class="mat"><strong>Prep checklist, one person, about 25 min</strong>
+          <ul>
+            <li>Open kit box "Day 1"; lay out 5 trays on the tables</li>
+            <li>Place 12 answer cards and checklists at seats</li>
+            <li>Hang poster board; test the markers</li>
+            <li>Load the fail-of-the-day slide; confirm the projector</li>
+          </ul>
+        </div>
         <div class="bad"><strong>The weakness attacked</strong>AI has no idea when it's wrong. Neither, yet, do we. Today fixes the second part.</div>
-        <div class="deliver"><b>Deliverable</b> · Personal "producer's checklist" + team truth-rubric poster hung on the lab wall</div>
+        <div class="deliver"><b>Deliverable</b> · Personal producer's checklist + team truth-rubric poster on the lab wall</div>
+        <div class="proj"><b>Project block (self-directed, 45 min)</b> · Handout: "Failure Autopsy". Campers watch a 10-minute pre-recorded teardown of two real AI disasters, add three more examples they find themselves to their journals, and finish the checklist's Day 1 items. Answer key lives in the instructor folder; the rubric poster answers the hard questions.</div>
       </article>
 
       <article class="day">
         <span class="dnum">Day 2 · Tuesday</span>
         <h4>Data Safari</h4>
-        <ul>
-          <li><b>AM, Field Kit Issue:</b> cameras, mics, clipboards. Teams get a mission (e.g., "document every plant species on the block") and shoot a labeled 150-photo dataset, angles, lighting, edge cases, the boring stuff models never see.</li>
-          <li><b>PM, Label Party:</b> tag the morning's data, then ask an image model to identify the same plants. Grade it against the labels. Every miss goes on the Wall of Almost.</li>
-        </ul>
+        <table class="run">
+          <tr><td>0:00-0:10</td><td><b>Open + kit issue.</b> Cameras, lav mics, clipboards, mission cards. Mission brief: "document every plant species on the block." Rules: the cohort moves as one group, inside the chalk boundary, cameras always on straps. Juniors GPS-tag each photo; seniors add a metadata schema (species, angle, light, confidence).</td></tr>
+          <tr><td>0:10-0:40</td><td><b>Data safari.</b> One block, single group, instructor at the front. Each camper shoots at least 25 photos and logs angles, lighting, and edge cases on the tally sheet. The instructor calls out the boring shots models never see: undersides, damaged leaves, half-hidden stems.</td></tr>
+          <tr><td>0:40-0:55</td><td><b>Label party.</b> Back inside. Teams tag the morning's photos in the shared album, run an image model on 10 of their own plants, and grade it against their labels. Every miss goes on the Wall of Almost.</td></tr>
+          <tr><td>0:55-1:00</td><td><b>Handoff.</b> Labeling handout issued (20 photos each to finish). Crew collects cameras for charging.</td></tr>
+        </table>
+        <div class="mat"><strong>Materials, 12 campers, pre-kitted</strong>
+          <ul>
+            <li>3 field kits (camera, lav mic, clipboard, chalk, measuring card), one per team of 4</li>
+            <li>12 tally sheets + 12 mission cards</li>
+            <li>Wall of Almost board + grading sheet ("AI vs. you")</li>
+            <li>1 laptop at the grading station, image-model tab open, content filter on</li>
+          </ul>
+        </div>
+        <div class="mat"><strong>Prep checklist, one person, about 25 min</strong>
+          <ul>
+            <li>Charge the 3 cameras; wipe memory cards</li>
+            <li>Load tally sheets onto the clipboards; stack mission cards</li>
+            <li>Set the grading station; test the model tab and filter</li>
+            <li>Walk the block once and lay the chalk boundary</li>
+          </ul>
+        </div>
         <div class="bad"><strong>The weakness attacked</strong>AI only knows the world from data humans collected. Fresh, local, weird reality is invisible to it.</div>
         <div class="deliver"><b>Deliverable</b> · A cleaned, labeled, human-verified dataset (first entry in each camper's portfolio)</div>
+        <div class="proj"><b>Project block (self-directed, 45 min)</b> · Finish tagging the team's share of the 150-photo dataset; write one paragraph, "what the model missed and why." Answer key: the common misses are backlit leaves and damaged plants; the poster has the checklist.</div>
       </article>
 
       <article class="day">
         <span class="dnum">Day 3 · Wednesday</span>
         <h4>The Verification Bureau</h4>
-        <ul>
-          <li><b>AM, Claim Intake:</b> campers receive a stack of AI-generated "facts" about their own town (population, history, who founded the school, what's at the corner of Main &amp; 3rd). They rank confidence, then hit the field with measuring tape and questions.</li>
-          <li><b>PM, The Report:</b> each team publishes a verdict per claim: verified / busted / unverifiable, with evidence: photos, measurements, a primary source. They learn the hardest phrase in the producer's vocabulary: <em>"we couldn't confirm it."</em></li>
-        </ul>
+        <table class="run">
+          <tr><td>0:00-0:10</td><td><b>Claim intake.</b> Each team gets a stack of 5 AI-generated "facts" about the town (population, founding year, what's at Main and 3rd). Campers rank their confidence on the claim sheet and write one line: "how I'd check it."</td></tr>
+          <tr><td>0:10-0:40</td><td><b>Verification sprint.</b> Single-group walk to two scripted stops (a shop owner briefed the week before, a public plaque). Measuring tape out, questions asked, photos taken. Every team stays inside the group; the instructor runs the clock, eight minutes per team per stop.</td></tr>
+          <tr><td>0:40-0:55</td><td><b>Verdicts.</b> Back inside. Teams fill verdict cards: verified, busted, or unverifiable, with evidence attached (photo, measurement, primary source). The instructor demos citing a primary source in one minute; each team reads one verdict aloud. The phrase of the day: "we couldn't confirm it."</td></tr>
+          <tr><td>0:55-1:00</td><td><b>Handoff.</b> Remaining-claims handout (finish with a parent or in the project block). Crew collects tapes and clipboards.</td></tr>
+        </table>
+        <div class="mat"><strong>Materials, 12 campers, pre-kitted</strong>
+          <ul>
+            <li>3 claim stacks x 5 cards (all claims pre-checked by the instructor against primary sources during prep)</li>
+            <li>12 verdict cards + 3 measuring tapes + 3 field clipboards</li>
+            <li>1 camera per team; shop-owner briefing sheet (instructor folder)</li>
+          </ul>
+        </div>
+        <div class="mat"><strong>Prep checklist, one person, about 30 min</strong>
+          <ul>
+            <li>Pre-verify all 15 claims against primary sources; print the cards</li>
+            <li>Brief the shop owner on the visit window (done the week before)</li>
+            <li>Set the two-stop walking route; print the route card</li>
+            <li>Charge cameras; test the measuring tapes</li>
+          </ul>
+        </div>
         <div class="bad"><strong>The weakness attacked</strong>AI states invented specifics with total confidence and cannot check a single one.</div>
-        <div class="deliver"><b>Deliverable</b> · Evidence-backed verification report on 10 AI claims, ≥3 field-measured</div>
+        <div class="deliver"><b>Deliverable</b> · Evidence-backed verification report on 10 AI claims, at least 3 field-measured</div>
+        <div class="proj"><b>Project block (self-directed, 45 min)</b> · Write the verdict report on the template: claim, verdict, evidence, source line. Answer key is the instructor's pre-verification sheet; it stays in the instructor folder.</div>
       </article>
 
       <article class="day">
         <span class="dnum">Day 4 · Thursday</span>
-        <h4>Sensors &amp; Signal</h4>
-        <ul>
-          <li><b>AM, Build the Instrument:</b> solder-and-program a micro:bit weather/noise/light station (supervised, kid-safe). Sensors are how machines touch the world, campers build the touching part.</li>
-          <li><b>PM, Logging the Invisible:</b> deploy stations around the venue; record real temperature, sound, and light data through the afternoon. Compare the day's actuals against an AI's confident morning "forecast." Discuss: why is fresh measured data worth more than a fluent prediction?</li>
-        </ul>
+        <h4>Sensors and Signal</h4>
+        <table class="run">
+          <tr><td>0:00-0:10</td><td><b>Demo.</b> The instructor holds up the finished station, names every part, and sets the safety gate: the solder station runs only while the instructor stands at it. Two pairs at a time; everyone else wires sensors or writes code.</td></tr>
+          <tr><td>0:10-0:40</td><td><b>Build.</b> Pairs rotate through the single heated station (about 6 minutes each) while the rest assemble sensor boards and write the logging program on laptops. The instructor runs the solder station personally, the full 30 minutes, with ventilation and PPE. Juniors follow the wiring-diagram card; seniors calibrate and add a second sensor channel.</td></tr>
+          <tr><td>0:40-0:55</td><td><b>Deploy + compare.</b> The whole group places stations around the venue and yard, inside the instructor's line of sight the entire time. First readings go on the log sheet. Compare them against the printed AI "forecast" from the morning, and discuss: why is fresh measured data worth more than a fluent prediction?</td></tr>
+          <tr><td>0:55-1:00</td><td><b>Handoff.</b> Overnight logging charts issued. Friday's opening is harvest-and-graph, ten minutes. Crew stores the solder gear, locked.</td></tr>
+        </table>
+        <div class="mat"><strong>Materials, 12 campers, pre-kitted</strong>
+          <ul>
+            <li>12 micro:bit sensor kits (temp, light, sound; USB rechargeable)</li>
+            <li>1 soldering station + fume extractor + safety glasses</li>
+            <li>12 wiring-diagram cards; logging program pre-loaded on laptops (USB fallback)</li>
+            <li>1 printed AI forecast sheet; 12 overnight log charts</li>
+          </ul>
+        </div>
+        <div class="mat"><strong>Prep checklist, one person, about 25 min</strong>
+          <ul>
+            <li>Charge the 12 micro:bits; lay out the kits</li>
+            <li>Set up the solder station, test the iron, check the extractor filter</li>
+            <li>Verify the laptop USB drivers; print the forecast sheet</li>
+          </ul>
+        </div>
         <div class="bad"><strong>The weakness attacked</strong>AI has no senses. It can't take today's temperature, and it can't be trusted to guess it.</div>
-        <div class="deliver"><b>Deliverable</b> · Working sensor station + overnight logged dataset, graphed by hand (sensors deploy Day 4 PM; dataset harvested and graphed at the Friday opening, before Fabrication begins)</div>
+        <div class="deliver"><b>Deliverable</b> · Working sensor station + overnight logged dataset, harvested and graphed at the Friday opening</div>
+        <div class="proj"><b>Project block (self-directed, 45 min)</b> · Write five sentences: "why fresh measured data beats a fluent prediction." Hand-graph the first hour of readings. Seniors compute the forecast error; juniors mark the high and low.</div>
       </article>
 
       <article class="day">
         <span class="dnum">Day 5 · Friday</span>
         <h4>Fabrication Friday</h4>
-        <ul>
-          <li><b>AM, Ask the Machine:</b> campers prompt an AI to design a phone stand / pencil holder / hinge bracket, then print it as-is on the lab 3D printers. No edits allowed.</li>
-          <li><b>PM, Reality Check:</b> test the prints: do they fit the phone? Survive a drop? Hold a door? Catalog the failures (tolerances, thin walls, fantasy geometry), then redesign by hand in CAD, reprint, and retest. The before/after pair goes in the portfolio.</li>
-        </ul>
+        <table class="run">
+          <tr><td>0:00-0:10</td><td><b>The challenge.</b> Show the AI-designed phone stand, prompted and printed earlier in the week by the instructor. The rule of the day: no edits to the AI's file. It printed exactly as prompted.</td></tr>
+          <tr><td>0:10-0:40</td><td><b>Test lab.</b> Teams stress-test the prints: drop test, phone fit test, 500g load test. Log every failure on the failure sheet with a cause guess: tolerance, thin wall, or fantasy geometry (a feature that cannot exist in the real world).</td></tr>
+          <tr><td>0:40-0:55</td><td><b>Redesign.</b> Fix exactly one failure in CAD. Juniors use guided templates (thicken the wall, add a fillet); seniors model freeform. The instructor queues the fixed files to print during the project block.</td></tr>
+          <tr><td>0:55-1:00</td><td><b>Handoff.</b> Before-and-after portfolio pages issued. Crew bags the failed prints for the museum shelf.</td></tr>
+        </table>
+        <div class="mat"><strong>Materials, 12 campers, pre-kitted</strong>
+          <ul>
+            <li>12 pre-printed AI designs (printed Thursday by the instructor, overnight batch)</li>
+            <li>12 failure log sheets; 12 CAD templates (juniors) + CAD access (seniors)</li>
+            <li>Test rig: 500g weight, drop mat, 3 phone dummies</li>
+            <li>Before-and-after portfolio pages</li>
+          </ul>
+        </div>
+        <div class="mat"><strong>Prep checklist, one person, about 30 min</strong>
+          <ul>
+            <li>Print the 12 AI designs in the Thursday overnight batch; check for jams</li>
+            <li>Lay out the test rig; open the CAD templates on the laptops</li>
+            <li>Clear the failed-print museum shelf for Friday's additions</li>
+          </ul>
+        </div>
         <div class="bad"><strong>The weakness attacked</strong>AI describes objects it has never held. Physics doesn't read the prompt.</div>
         <div class="deliver"><b>Deliverable</b> · Failed AI print + fixed human revision, presented side by side</div>
+        <div class="proj"><b>Project block (self-directed, 45 min)</b> · CAD finishing and print monitoring; mount the before-and-after photo pair with captions: "the AI did this; I fixed that."</div>
       </article>
 
     </div>
@@ -313,6 +416,7 @@
       <h3>Week 2 · The Producer's Chair</h3>
       <span class="wk">Days 6–10 · direct the machine, own the outcome</span>
     </div>
+    <p class="note" style="margin-bottom:18px">Week 2 converts to this same 60-minute lesson format in the next iteration; the cards below still show the original two-block draft.</p>
     <div class="days">
 
       <article class="day">
@@ -377,17 +481,17 @@
 <section id="day">
   <div class="wrap">
     <p class="kicker">04 · A day at camp</p>
-    <h2>Roughly half screen, half world, and the world wins ties.</h2>
+    <h2>The 60-minute lesson: one adult, twelve kids, zero dead time.</h2>
+    <p class="lede">There is no 9-to-4 day and no AM/PM split. There is one 60-minute lesson with the instructor, a 45-minute self-directed project block that needs no adult, and 30 minutes of solo prep before the lesson. This is the whole schedule, and it is what makes one instructor enough.</p>
     <table class="sched">
-      <tr><td>9:00</td><td>Drop-off &amp; warm-up</td><td>Board-game hour, tools check-out, producer's journal opened</td></tr>
-      <tr><td>9:15</td><td>Morning circle</td><td>"AI Fail of the Day", a real, recent AI blunder, dissected in 5 minutes</td></tr>
-      <tr><td>9:30</td><td>AM block</td><td>Deep work: field mission, build, or studio (per curriculum)</td></tr>
-      <tr><td>12:00</td><td>Lunch &amp; recess</td><td>Outside, devices down, actual sun</td></tr>
-      <tr><td>1:00</td><td>PM block</td><td>Second half: testing, judging, shipping the day's deliverable</td></tr>
-      <tr><td>3:30</td><td>Debrief &amp; log</td><td>Teams log evidence, update the Wall of Almost, set tomorrow's mission</td></tr>
-      <tr><td>4:00</td><td>Pickup</td><td>Extended day to 5:30 available (quiet build / games)</td></tr>
+      <tr><td>-0:30</td><td>Instructor prep</td><td>Open the day's kit box, lay out twelve stations, run the tool-safety check, charge shared devices. The checklist is printed; nothing is shopped for or improvised.</td></tr>
+      <tr><td>0:00</td><td>Open</td><td>AI Fail of the Day (5 min), today's mission brief, crew role assignments (materials captain, Wall of Almost curator, reset lead)</td></tr>
+      <tr><td>0:10</td><td>Core</td><td>One activity; the instructor circulates for the full 30 minutes. Tool stations run only with the instructor standing at them.</td></tr>
+      <tr><td>0:40</td><td>Close</td><td>Debrief, evidence logged, project-block handout issued, tomorrow previewed</td></tr>
+      <tr><td>0:55</td><td>Pickup transition</td><td>Handouts in backpacks, crew resets stations, attendance pinged to parents via Twilio</td></tr>
+      <tr><td>+0:45</td><td>Project block (self-directed)</td><td>Campers work the printed handout in the project corner or at home. No adult instruction needed; the handout, the answer key, and the wall rubric carry the weight.</td></tr>
     </table>
-    <p class="note">Safety: one background-checked, first-aid-certified instructor supervises all 12 campers every minute of every session. Tool use (soldering, cutting, printers) is demo-gated at supervised stations; field missions move as a single group, never in buddy splits. Camp is nut-aware; all medications are held by the instructor and logged. (The full one-adult safety plan, supervision approach, tool gating, incident handling, lands with the 60-minute lesson rewrite in §03.)</p>
+    <p class="note">Safety: one background-checked, first-aid-certified instructor supervises all 12 campers every minute of every session. Tool use (soldering, cutting, printers) is demo-gated at supervised stations; field missions move as a single group, never in buddy splits. Camp is nut-aware; all medications are held by the instructor and logged. (Week 1's run-of-show plans above are the first installment; the complete one-adult safety plan lands with rubric item 4 in the coming runs.)</p>
   </div>
 </section>
 
