@@ -470,10 +470,10 @@
         <table class="run">
           <tr><td>0:00-0:10</td><td><b>Open.</b> The AI's predicted route for the course, printed and posted. The mission: beat the prediction with a real robot. Course rules, stopwatch demo, safety check on the shared kits.</td></tr>
           <tr><td>0:10-0:40</td><td><b>Program the wanderer.</b> Teams of 4 share one rover kit (3 kits total). Each team codes, runs a trial, and debugs in rotation; the course never sits idle. When a rover flips or gets lost, the team logs the physical cause: wheel slip, sensor drift, tape that reflects wrong. Seniors add the autonomous waypoint extension.</td></tr>
-          <tr><td>0:40-0:55</td><td><b>The gauntlet.</b> Timed trials, two runs per team, the instructor times and calls the scores. Every run ends with a 60-second debug huddle: what failed in the real world that the simulation never saw?</td></tr>
+          <tr><td>0:40-0:55</td><td><b>The gauntlet.</b> Timed trials, two runs per team, the instructor times and calls the scores. After each team's pair of runs, one 60-second debug huddle: what failed in the real world that the simulation never saw?</td></tr>
           <tr><td>0:55-1:00</td><td><b>Handoff.</b> "Crash Report" log sheet issued. Crew packs the course markers.</td></tr>
         </table>
-        <div class="cont"><b>If it runs long</b>Six timed runs in 15 minutes means about 2 minutes per run and a 60-second huddle after each, with 3 minutes of slack. If coding runs past 0:40, the gauntlet drops to one run per team and the debug huddle merges into the first 10 minutes of the project block. The instructor never steals from the 0:55 handoff: pickup pings go out on time.</div>
+        <div class="cont"><b>If it runs long</b>Six timed runs at two minutes each fill 12 minutes; the three team huddles take 60 seconds each, three minutes. That is the whole 15-minute window, exactly, with no slack, so the instructor calls "runs only, save it for the huddle" the moment a run slips. If coding runs past 0:40, the gauntlet drops to one run per team: 3 runs (6 minutes) plus the three huddles (3 minutes) land at 9 minutes, comfortably inside the window, with no borrowing from the project block. The instructor never steals from the 0:55 handoff: pickup pings go out on time.</div>
         <div class="mat"><strong>Materials, 12 campers, pre-kitted</strong>
           <ul>
             <li>3 rover robotics kits, charged (one per team of 4)</li>
@@ -1056,7 +1056,7 @@
       <ul>
         <li><b>Airtable API</b>, the camper database of record: roster, med/allergy flags, pickup PINs + authorized-adult photos, incident log, daily attendance. <span class="pill ok">verified API</span></li>
         <li><b>Twilio</b>, parent comms: enrollment confirmation, week-of logistics pack, daily 9:15 drop-off ping and 11:15 pickup pings, emergency broadcast. ~$140/session. <span class="pill ok">verified API</span></li>
-        <li><b>Equipment ordering, flagged honestly: Amazon Business has no public ordering API</b> (punch-out procurement only). <span class="pill warn">no public API</span> Electronics (micro:bits, sensors, solder stock) order cleanly via <b>Digi-Key / Mouser APIs</b> (real order APIs); big-ticket items, the $12,650 startup list in §08 (2 printers, 3 rover kits, 8 refurbished laptops), are assembled as carts by the agent with <b>one human checkout click</b>. Order by T-8 so printers are commissioned and staff-trained by T-2.</li>
+        <li><b>Equipment ordering, flagged honestly: Amazon Business has no public ordering API</b> (punch-out procurement only). <span class="pill warn">no public API</span> Electronics (micro:bits, sensors, solder stock) order cleanly via <b>Digi-Key / Mouser APIs</b> (real order APIs); big-ticket items, the $12,650 startup list in §07 (2 printers, 3 rover kits, 8 refurbished laptops), are assembled as carts by the agent with <b>one human checkout click</b>. Order by T-8 so printers are commissioned and staff-trained by T-2.</li>
       </ul>
       <div class="gate"><b>Kill gate 5</b>, Printers + laptop cart not commissioned by T-2 → switch Days 5/7 to a pre-negotiated partner makerspace (+$900 from contingency) rather than run untested tools with kids.</div>
     </div>
