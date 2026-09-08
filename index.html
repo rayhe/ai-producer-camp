@@ -803,7 +803,7 @@
       <div class="card">
         <div class="role">The instructor · 1 adult</div>
         <h3>A generalist maker-educator</h3>
-        <p>One person: teaching experience plus hands-on maker fluency, background-checked, first-aid certified, AB 506 trained. Must be able to run a sensor build, a CAD session, a taste panel, and an interview drill in the same week. Pay: $2,000 per two-week session (10 instruction hours, about 5 hours of prep, plus present-but-silent supervision through the daily project blocks and pickup, roughly 28 hours all in, about $71/hr blended). If hired rather than founder-operated, the instructor is a W-2 employee on Gusto payroll with California workers' comp bound before Day 1. Contractor arrangements are off the table: under California's ABC test (AB5, Labor Code §2775) an on-site, on-schedule instructor delivering the camp's core service is an employee, full stop.</p>
+        <p>One person: teaching experience plus hands-on maker fluency, background-checked, first-aid certified, AB 506 trained. Must be able to run a sensor build, a CAD session, a taste panel, and an interview drill in the same week. Pay: $2,000 per two-week session (10 instruction hours, a 4-hour Session Zero kitting day, about 2.5 hours of daily prep across the session, plus present-but-silent supervision through the daily project blocks and pickup, roughly 27 hours all in, about $74/hr blended). If hired rather than founder-operated, the instructor is a W-2 employee on Gusto payroll with California workers' comp bound before Day 1. Contractor arrangements are off the table: under California's ABC test (AB5, Labor Code §2775) an on-site, on-schedule instructor delivering the camp's core service is an employee, full stop.</p>
       </div>
       <div class="card">
         <div class="role">Camper crew · rotating, ages 13–14</div>
@@ -816,9 +816,32 @@
         <p>Everything a second adult used to absorb, check-in, parent pings, attendance, pickup authorization records, incident timestamps, is handled by the API stack in §10 (Airtable, Twilio, Typeform). The solo instructor teaches; the software does the paperwork. That is what makes one adult enough.</p>
       </div>
       <div class="card">
-        <div class="role">Prep · 30 minutes max</div>
-        <h3>Kitted the day before</h3>
-        <p>Every day's materials arrive as one pre-packed kit with a 30-minute prep checklist: open the kit, lay out twelve stations, run the tool-safety check, charge the shared devices. No same-day shopping, no improvisation. Every day in §03 carries its own materials list and checklist in the 60-minute lesson format.</p>
+        <div class="role">Prep · Session Zero + 30 min/day</div>
+        <h3>The kitting day: four hours, budgeted, paid</h3>
+        <p>Every day's box is packed by the same person who teaches, in one four-hour Session Zero the Saturday before the session, not the night before. This is the work the daily 30-minute checklists stand on. It is scheduled, paid, and inside the instructor's hours, not a favor done after hours. After Session Zero, each day's prep is genuinely 30 minutes or less: open the day-box, lay out twelve stations, run the tool-safety check, charge the shared devices.</p>
+        <ul class="seams">
+          <li><b>Hour 1: the print run.</b> Batch-print all ten days' paper on the venue laser printer: 120 project-block handouts (12 per day), 100 artifact cards, 36 mission/claim/verdict cards, 12 transcription cards, plus the daily tally sheets, scorecards, QC pages, credit-roll templates, diplomas, and gallery labels. Roughly 320 sheets, about 20 minutes at 20 ppm, plus paper loading and a toner check. The two wall posters (truth rubric, Wall of Almost) come from the copy shop on Friday and are picked up Saturday morning.</li>
+          <li><b>Hour 2: cut, laminate, box.</b> Laminate the 12 Producer's Checklists and the 12 mission cards. Cut the artifact, claim, and verdict cards. Pack each day's paper into its labeled day-box: Day 1 holds 100 artifact cards, 12 answer cards, 12 laminated checklists, and the rubric poster; Day 2 holds 12 tally sheets, 12 mission cards, and the Wall of Almost board. Seal each box with its own 30-minute prep checklist taped inside the lid.</li>
+          <li><b>Hour 3: charge and test everything with a battery.</b> 12 micro:bits, 3 field cameras, 3 recorders, 3 rover kits, 8 laptops. Every device plugged in, every charge light confirmed, every micro:bit flashed with the logging program. Any failed battery gets a labeled bag and a replacement ordered that day, never a hope and a prayer.</li>
+          <li><b>Hour 4: the safety and admin pass.</b> Test the soldering iron and the fume extractor filter. Check the first-aid kit against the meds and allergy sheet. Print the pickup-authorization list. Stage the Day 5 filament and verify the two sliced phone-stand files print clean. Lock the ten day-boxes in the storage closet; the key lives with the instructor only.</li>
+        </ul>
+        <p class="note" style="margin-top:12px"><b>The mid-session restock, 30 minutes, Wednesday evening after Day 3:</b> reprint anything consumed (tally sheets, claim cards), recharge the Day 4 and 5 gear, slice the Thursday overnight AI-design batch, and check the filament. Nothing restocks itself and nothing is bought retail mid-week: the $900/session materials line buys the consumables below as one cart, ordered a month before.</p>
+        <h3 style="margin-top:18px">Consumables per day, per 12-camper session</h3>
+        <table class="budget">
+          <tr><th>Day</th><th>What wears out</th><th>Cost</th></tr>
+          <tr><td>1 · Blind Taste Test</td><td>Cardstock, lamination pouches, poster board, markers</td><td>$70</td></tr>
+          <tr><td>2 · Data Safari</td><td>Tally sheets, mission cards, chalk, clipboard wear</td><td>$45</td></tr>
+          <tr><td>3 · Verification Bureau</td><td>Claim and verdict cards, measuring tape replacement</td><td>$40</td></tr>
+          <tr><td>4 · Sensors and Signal</td><td>Solder wire, extractor filter share, USB cable spares</td><td>$70</td></tr>
+          <tr><td>5 · Fabrication Friday</td><td>Filament for 12 phone stands (~1.5 spools), test-rig wear</td><td>$80</td></tr>
+          <tr><td>6 · Interview Room</td><td>Question-craft sheets, transcription cards</td><td>$40</td></tr>
+          <tr><td>7 · Robotics Gauntlet</td><td>Rechargeable batteries, tape, packing peanuts, cones</td><td>$65</td></tr>
+          <tr><td>8 · Taste Panel</td><td>Panel scorecards, QC-gate pages</td><td>$40</td></tr>
+          <tr><td>9 · Ship Day</td><td>Portfolio folders, credit-roll stock, ink</td><td>$65</td></tr>
+          <tr><td>10 · Showcase</td><td>Diplomas, gallery labels, showcase programs, awards</td><td>$85</td></tr>
+          <tr><td colspan="2"><b>Replacement and reorder reserve</b> (lost parts, dead batteries, reprints)</td><td><b>$300</b></td></tr>
+          <tr><td colspan="2"><b>Session total</b> (ties to the $900 materials line in the operating budget; printing and snacks are the separate $150 line)</td><td><b>$900</b></td></tr>
+        </table>
       </div>
     </div>
   </div>
@@ -834,7 +857,7 @@
         <h3>Per-session operating</h3>
         <table class="budget">
           <tr><th>Line</th><th>Cost</th></tr>
-          <tr><td>Instructor pay (10 hrs teaching + ~5 hrs prep + project-block supervision)</td><td>$2,000</td></tr>
+          <tr><td>Instructor pay (10 hrs teaching + ~6.5 hrs prep and kitting + project-block supervision)</td><td>$2,000</td></tr>
           <tr><td>Venue (makerspace, 10 hrs @ $75)</td><td>$750</td></tr>
           <tr><td>Materials &amp; consumables (12 campers)</td><td>$900</td></tr>
           <tr><td>Insurance share, licensing, first aid</td><td>$600</td></tr>
