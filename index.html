@@ -756,9 +756,9 @@
   <div class="wrap">
     <p class="kicker">04 · A day at camp</p>
     <h2>The 60-minute lesson: one adult, twelve kids, zero dead time.</h2>
-    <p class="lede">There is no 9-to-4 day and no AM/PM split. There is one 60-minute lesson of direct instruction, a 45-minute self-directed project block in the same room with the instructor present but not teaching, and 30 minutes of solo prep before the lesson. Instruction is one hour a day; supervision is continuous, drop-off to pickup. The day runs 9:15 drop-off to 11:15 pickup, except Day 10, which runs to 11:45: the parents' showcase is pinned at 11:15-11:45 with the full cohort and the instructor present, and dismissal moves to 11:45. This is the whole schedule, and it is what makes one instructor enough.</p>
+    <p class="lede">There is no 9-to-4 day and no AM/PM split. There is one 60-minute lesson of direct instruction, a 45-minute self-directed project block in the same room with the instructor present but not teaching, and 30 minutes of solo prep (8:45 to 9:15) before the doors open. Instruction is one hour a day; supervision is continuous, drop-off to pickup. The day runs 9:15 drop-off to 11:15 pickup, except Day 10, which runs to 11:45: the parents' showcase is pinned at 11:15-11:45 with the full cohort and the instructor present, and dismissal moves to 11:45. This is the whole schedule, and it is what makes one instructor enough.</p>
     <table class="sched">
-      <tr><td>9:00</td><td>Instructor prep</td><td>Open the day's kit box, lay out twelve stations, run the tool-safety check, charge shared devices. The checklist is printed; nothing is shopped for or improvised.</td></tr>
+      <tr><td>8:45</td><td>Instructor prep</td><td>Open the day's kit box, lay out twelve stations, run the tool-safety check, top up shared devices. The checklist is printed; nothing is shopped for or improvised. The room is finished by 9:15: one adult cannot lay out twelve stations and run door check-in at the same time, so all 30 paid prep minutes land before drop-off, not after.</td></tr>
       <tr><td>9:15</td><td>Drop-off</td><td>Campers check in at the door (QR + PIN against the Airtable roster), bags down, seats in the U. The door locks to visitors at 9:30.</td></tr>
       <tr><td>9:30</td><td>Open</td><td>AI Fail of the Day (5 min), today's mission brief, crew role assignments (materials captain, Wall of Almost curator, reset lead)</td></tr>
       <tr><td>9:40</td><td>Core</td><td>One activity; the instructor circulates for the full 30 minutes. Tool stations run only with the instructor standing at them.</td></tr>
@@ -887,16 +887,16 @@
         <table class="budget">
           <tr><th>Line</th><th>Cost</th></tr>
           <tr><td>Instructor pay (10 hrs teaching, 4-hr Session Zero, 30 min/day prep (5 hrs), 45-min daily project-block supervision (7.5 hrs), the 30-min mid-week restock, and the 30-min Day 10 showcase; roughly 27.5 hrs, stated as ~30 all in, about $67/hr blended)</td><td>$2,000</td></tr>
-          <tr><td>Venue (makerspace, ~23 hrs @ $75: 9:00–11:15 daily, 11:45 on Day 10)</td><td>$1,725</td></tr>
+          <tr><td>Venue (makerspace, ~25.5 hrs @ $75: 8:45 prep through 11:15 pickup daily, 11:45 on Day 10)</td><td>$1,913</td></tr>
           <tr><td>Materials &amp; consumables (12 campers)</td><td>$900</td></tr>
           <tr><td>Insurance share, licensing, first aid</td><td>$600</td></tr>
           <tr><td>AI tool licenses (school-managed accounts, 12 seats; filament lives in the materials line)</td><td>$300</td></tr>
           <tr><td>Snacks + printed handouts</td><td>$150</td></tr>
-          <tr class="total"><td>Total operating</td><td>$5,675</td></tr>
+          <tr class="total"><td>Total operating</td><td>$5,863</td></tr>
           <tr><td>Tuition revenue (12 × $425)</td><td class="neg">$5,100</td></tr>
-          <tr class="total"><td>Net per session (covered by founding sponsorships)</td><td class="neg">-$575</td></tr>
+          <tr class="total"><td>Net per session (covered by founding sponsorships)</td><td class="neg">-$763</td></tr>
         </table>
-        <p class="note">The session runs $575 in the red at $425 tuition, because the venue bills actual room hours (23 at $75), not the ten teaching hours the old line assumed. Two $2.5k founding sponsorships cover that shortfall, the scholarship bench (2 seats/session), and an equipment-refresh reserve. The $425 price point holds because that is what makes the cohort accessible; the sponsors underwrite the margin by design. Year 2 adds a second session at the same venue, spreading startup costs across twenty lessons instead of ten.</p>
+        <p class="note">The session runs $763 in the red at $425 tuition, because the venue bills actual room hours (25.5 at $75, including the 30-minute solo prep block that starts at 8:45 so the room is finished before 9:15 check-in), not the ten teaching hours the old line assumed. Two $2.5k founding sponsorships cover that shortfall, the scholarship bench (2 seats/session), and an equipment-refresh reserve. The $425 price point holds because that is what makes the cohort accessible; the sponsors underwrite the margin by design. Year 2 adds a second session at the same venue, spreading startup costs across twenty lessons instead of ten.</p>
       </div>
       <div>
         <h3>One-time startup (year 1)</h3>
@@ -1030,7 +1030,7 @@
         <li>Requirements spec, written once and reused: 1,500+ sq ft makerspace, quiet interview room, secure outdoor access, walkable block, gallery wall, weekday 8am–6pm access June 7–25, COI naming the host.</li>
         <li><b>Peerspace / Tagvenue, flagged honestly: neither exposes a public booking or inquiry API</b> (verified Aug 2026; they are message-and-book marketplaces). <span class="pill warn">no public API</span></li>
         <li>Workaround: scripted marketplace search + browser automation builds a shortlist of 6 candidate venues with pricing and availability into Airtable; the operator makes <b>one decision</b>, pick + approve deposit (card on file). Hosts reply in-marketplace; the final booking is deliberately not scripted.</li>
-        <li>Budget anchor: ~$1,725/session (about 23 hours of room time at the ~$75/h makerspace rate, 9:00 prep through 11:15 pickup daily, 11:45 on Day 10, across ten days), deposit due at booking.</li>
+        <li>Budget anchor: ~$1,913/session (about 25.5 hours of room time at the ~$75/h makerspace rate, 8:45 prep through 11:15 pickup daily, 11:45 on Day 10, across ten days), deposit due at booking.</li>
       </ul>
       <div class="gate"><b>Kill gate 2</b>, No signed venue by T-14 → no June session. The venue is the long pole; there is no second choice without moving the cohort's dates.</div>
     </div>
@@ -1062,7 +1062,7 @@
         <li><b>Typeform API</b> intake (camper info, allergies, pickup authorizations) webhooked into <b>Airtable</b>; <b>DocuSign API</b> sends the liability waiver + photo release automatically on payment. <span class="pill ok">verified APIs</span></li>
         <li>Landing page: this site, enrollment CTAs activate when the live Payment Link publishes at T-18. Hosting is free (GitHub Pages); forms and payments are all API-side.</li>
       </ul>
-      <div class="gate"><b>Kill gate 4 (soft, T-8)</b>, fewer than 6 paid → cut ad spend to $800 retarget-only. <b>Hard, T-4:</b> fewer than 10 paid → cancel session, refund in full via Stripe, run the wind-down checklist. Cancelling at T-4 strands ≈ $4k (sunk ad spend + non-refundable setup), that number is the plan's true worst case, and it's why the gates exist. <b>Why ten:</b> ten paid seats plus the two donor-funded scholarship seats equal the full 12-seat cohort, 12 x $425 = $5,100 against the $5,675 per-session operating budget (itemized in §07). A full session already runs $575 in the red, which the founding sponsorships absorb by design; at nine paid seats the hole is $1,000 (11 x $425 = $4,675 against $5,675), and that gap would come out of the equipment-refresh reserve, so it cancels at the gate instead of burning the reserve.</div>
+      <div class="gate"><b>Kill gate 4 (soft, T-8)</b>, fewer than 6 paid → cut ad spend to $800 retarget-only. <b>Hard, T-4:</b> fewer than 10 paid → cancel session, refund in full via Stripe, run the wind-down checklist. Cancelling at T-4 strands ≈ $4k (sunk ad spend + non-refundable setup), that number is the plan's true worst case, and it's why the gates exist. <b>Why ten:</b> ten paid seats plus the two donor-funded scholarship seats equal the full 12-seat cohort, 12 x $425 = $5,100 against the $5,863 per-session operating budget (itemized in §07). A full session already runs $763 in the red, which the founding sponsorships absorb by design; at nine paid seats the hole is about $1,190 (11 x $425 = $4,675 against $5,863), and that gap would come out of the equipment-refresh reserve, so it cancels at the gate instead of burning the reserve.</div>
     </div>
 
     <div class="phase">
@@ -1131,7 +1131,7 @@
           <tr><td>Workers' comp insurance (one W-2 employee)</td><td>$450</td></tr>
           <tr class="total"><td>Launch total</td><td>$11,748</td></tr>
         </table>
-        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $600 operating insurance line, the two budgets don't double-count. All-in year-1 cash need: $11.7k launch + $13.0k equipment + $5.7k operating − $5.1k tuition ≈ <b>$25.4k net</b>, funded by sponsors/founder capital (the §07 numbers describe steady-state sessions, including the sponsor-underwritten $575/session shortfall; this is the year-1 cash picture). Workers' comp is $0 if the founder operates the camp themselves. Worst case (cancel at T-4): ~$4k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
+        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $600 operating insurance line, the two budgets don't double-count. All-in year-1 cash need: $11.7k launch + $13.0k equipment + $5.9k operating − $5.1k tuition ≈ <b>$25.5k net</b>, funded by sponsors/founder capital (the §07 numbers describe steady-state sessions, including the sponsor-underwritten $763/session shortfall; this is the year-1 cash picture). Workers' comp is $0 if the founder operates the camp themselves. Worst case (cancel at T-4): ~$4k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
       </div>
     </div>
 
@@ -1201,7 +1201,7 @@
       <div class="card">
         <div class="role">The budget realist · 8/10</div>
         <h3>"The math checks. The margin is thin, and it says so."</h3>
-        <p>Per-session and launch arithmetic reconcile. Flagged: the Twilio ping times were left over from a full-day format (fixed to the 9:15/11:15 day), and instructor pay is now stated against all present hours, not just teaching hours. Flagged and fixed since the re-score: the venue line still billed ten one-hour lessons; it now bills the actual 23 hours of room time, the session's $575 shortfall is stated outright as sponsor-underwritten, and gate 4's cancel math is updated to match. Flagged and fixed in the latest pass: Phase 5 still cited the $12,650 pre-recorder startup total from before the Day 6 kit fix; it now cites the current $13,040. And the budget table's instructor-pay line claimed "10 hrs teaching + 9 hrs prep and kitting" while §06's mid-week restock (30 min, Wednesday evening) sat outside the stated hours; the line now enumerates all 27.5 paid hours (10 teaching, 4 Session Zero, 5 daily prep, 7.5 project-block supervision, 0.5 restock, 0.5 showcase), matching §06's "roughly 30 all in."</p>
+        <p>Per-session and launch arithmetic reconcile. Flagged: the Twilio ping times were left over from a full-day format (fixed to the 9:15/11:15 day), and instructor pay is now stated against all present hours, not just teaching hours. Flagged and fixed since the re-score: the venue line still billed ten one-hour lessons; it now bills the actual 23 hours of room time, the session's $575 shortfall is stated outright as sponsor-underwritten, and gate 4's cancel math is updated to match. Flagged and fixed in this pass: the §04 day schedule started solo prep at 9:00 with drop-off at 9:15, fifteen minutes for checklists that all run 25 to 30 minutes, and the instructor double-booked at the door for check-in while laying out twelve stations. Prep now runs 8:45 to 9:15, the room is finished before check-in, the venue line bills the actual 25.5 hours ($1,913), and the session shortfall, gate-4 math, and year-1 cash reconciliation are updated to match ($5,863 operating, $763 net per session, ~$25.5k all-in). Flagged and fixed in the latest pass: Phase 5 still cited the $12,650 pre-recorder startup total from before the Day 6 kit fix; it now cites the current $13,040. And the budget table's instructor-pay line claimed "10 hrs teaching + 9 hrs prep and kitting" while §06's mid-week restock (30 min, Wednesday evening) sat outside the stated hours; the line now enumerates all 27.5 paid hours (10 teaching, 4 Session Zero, 5 daily prep, 7.5 project-block supervision, 0.5 restock, 0.5 showcase), matching §06's "roughly 30 all in."</p>
       </div>
     </div>
     <div class="grid" style="margin-top:18px">
