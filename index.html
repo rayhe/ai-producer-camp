@@ -887,16 +887,16 @@
         <table class="budget">
           <tr><th>Line</th><th>Cost</th></tr>
           <tr><td>Instructor pay (10 hrs teaching + 9 hrs prep and kitting: 4-hr Session Zero + 30 min/day + project-block supervision)</td><td>$2,000</td></tr>
-          <tr><td>Venue (makerspace, 10 hrs @ $75)</td><td>$750</td></tr>
+          <tr><td>Venue (makerspace, ~23 hrs @ $75: 9:00–11:15 daily, 11:45 on Day 10)</td><td>$1,725</td></tr>
           <tr><td>Materials &amp; consumables (12 campers)</td><td>$900</td></tr>
           <tr><td>Insurance share, licensing, first aid</td><td>$600</td></tr>
-          <tr><td>AI tool licenses + filament</td><td>$300</td></tr>
+          <tr><td>AI tool licenses (school-managed accounts, 12 seats; filament lives in the materials line)</td><td>$300</td></tr>
           <tr><td>Snacks + printed handouts</td><td>$150</td></tr>
-          <tr class="total"><td>Total operating</td><td>$4,700</td></tr>
+          <tr class="total"><td>Total operating</td><td>$5,675</td></tr>
           <tr><td>Tuition revenue (12 × $425)</td><td class="neg">$5,100</td></tr>
-          <tr class="total"><td>Surplus per session</td><td class="neg">$400</td></tr>
+          <tr class="total"><td>Net per session (covered by founding sponsorships)</td><td class="neg">-$575</td></tr>
         </table>
-        <p class="note">The per-session surplus plus two $2.5k founding sponsorships fund the scholarship bench (2 seats/session) and an equipment-refresh reserve. Year 2 adds a second session at the same venue, spreading startup costs across twenty lessons instead of ten.</p>
+        <p class="note">The session runs $575 in the red at $425 tuition, because the venue bills actual room hours (23 at $75), not the ten teaching hours the old line assumed. Two $2.5k founding sponsorships cover that shortfall, the scholarship bench (2 seats/session), and an equipment-refresh reserve. The $425 price point holds because that is what makes the cohort accessible; the sponsors underwrite the margin by design. Year 2 adds a second session at the same venue, spreading startup costs across twenty lessons instead of ten.</p>
       </div>
       <div>
         <h3>One-time startup (year 1)</h3>
@@ -1030,7 +1030,7 @@
         <li>Requirements spec, written once and reused: 1,500+ sq ft makerspace, quiet interview room, secure outdoor access, walkable block, gallery wall, weekday 8am–6pm access June 7–25, COI naming the host.</li>
         <li><b>Peerspace / Tagvenue, flagged honestly: neither exposes a public booking or inquiry API</b> (verified Aug 2026; they are message-and-book marketplaces). <span class="pill warn">no public API</span></li>
         <li>Workaround: scripted marketplace search + browser automation builds a shortlist of 6 candidate venues with pricing and availability into Airtable; the operator makes <b>one decision</b>, pick + approve deposit (card on file). Hosts reply in-marketplace; the final booking is deliberately not scripted.</li>
-        <li>Budget anchor: ~$750/session (ten one-hour lessons @ ~$75/h makerspace rate), deposit due at booking.</li>
+        <li>Budget anchor: ~$1,725/session (about 23 hours of room time at the ~$75/h makerspace rate, 9:00 prep through 11:15 pickup daily, 11:45 on Day 10, across ten days), deposit due at booking.</li>
       </ul>
       <div class="gate"><b>Kill gate 2</b>, No signed venue by T-14 → no June session. The venue is the long pole; there is no second choice without moving the cohort's dates.</div>
     </div>
@@ -1062,7 +1062,7 @@
         <li><b>Typeform API</b> intake (camper info, allergies, pickup authorizations) webhooked into <b>Airtable</b>; <b>DocuSign API</b> sends the liability waiver + photo release automatically on payment. <span class="pill ok">verified APIs</span></li>
         <li>Landing page: this site, enrollment CTAs activate when the live Payment Link publishes at T-18. Hosting is free (GitHub Pages); forms and payments are all API-side.</li>
       </ul>
-      <div class="gate"><b>Kill gate 4 (soft, T-8)</b>, fewer than 6 paid → cut ad spend to $800 retarget-only. <b>Hard, T-4:</b> fewer than 10 paid → cancel session, refund in full via Stripe, run the wind-down checklist. Cancelling at T-4 strands ≈ $4k (sunk ad spend + non-refundable setup), that number is the plan's true worst case, and it's why the gates exist. <b>Why ten:</b> ten paid seats plus the two donor-funded scholarship seats equal the full 12-seat cohort, 12 x $425 = $5,100 against the $4,700 per-session operating budget (itemized in §07). At nine paid seats the session lands $25 in the red and the gap would come out of the scholarship bench, so it cancels at the gate instead of running a loss.</div>
+      <div class="gate"><b>Kill gate 4 (soft, T-8)</b>, fewer than 6 paid → cut ad spend to $800 retarget-only. <b>Hard, T-4:</b> fewer than 10 paid → cancel session, refund in full via Stripe, run the wind-down checklist. Cancelling at T-4 strands ≈ $4k (sunk ad spend + non-refundable setup), that number is the plan's true worst case, and it's why the gates exist. <b>Why ten:</b> ten paid seats plus the two donor-funded scholarship seats equal the full 12-seat cohort, 12 x $425 = $5,100 against the $5,675 per-session operating budget (itemized in §07). A full session already runs $575 in the red, which the founding sponsorships absorb by design; at nine paid seats the hole is $1,000 (11 x $425 = $4,675 against $5,675), and that gap would come out of the equipment-refresh reserve, so it cancels at the gate instead of burning the reserve.</div>
     </div>
 
     <div class="phase">
@@ -1131,7 +1131,7 @@
           <tr><td>Workers' comp insurance (one W-2 employee)</td><td>$450</td></tr>
           <tr class="total"><td>Launch total</td><td>$11,748</td></tr>
         </table>
-        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $600 operating insurance line, the two budgets don't double-count. All-in year-1 cash need: $11.7k launch + $13.0k equipment + $4.7k operating − $5.1k tuition ≈ <b>$24.4k net</b>, funded by sponsors/founder capital (the §07 "surplus" numbers describe steady-state sessions; this is the year-1 cash picture). Workers' comp is $0 if the founder operates the camp themselves. Worst case (cancel at T-4): ~$4k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
+        <p class="note">Reconciled with §07 (above): this ledger replaces the sketch's $1,500 "marketing/licensing" line and its $600 operating insurance line, the two budgets don't double-count. All-in year-1 cash need: $11.7k launch + $13.0k equipment + $5.7k operating − $5.1k tuition ≈ <b>$25.4k net</b>, funded by sponsors/founder capital (the §07 numbers describe steady-state sessions, including the sponsor-underwritten $575/session shortfall; this is the year-1 cash picture). Workers' comp is $0 if the founder operates the camp themselves. Worst case (cancel at T-4): ~$4k stranded. Prices are Aug-2026 estimates; ⚠-flagged items carry the most variance.</p>
       </div>
     </div>
 
@@ -1201,7 +1201,7 @@
       <div class="card">
         <div class="role">The budget realist · 8/10</div>
         <h3>"The math checks. The margin is thin, and it says so."</h3>
-        <p>Per-session and launch arithmetic reconcile. Flagged: the Twilio ping times were left over from a full-day format (fixed to the 9:15/11:15 day), and instructor pay is now stated against all present hours, not just teaching hours.</p>
+        <p>Per-session and launch arithmetic reconcile. Flagged: the Twilio ping times were left over from a full-day format (fixed to the 9:15/11:15 day), and instructor pay is now stated against all present hours, not just teaching hours. Flagged and fixed since the re-score: the venue line still billed ten one-hour lessons; it now bills the actual 23 hours of room time, the session's $575 shortfall is stated outright as sponsor-underwritten, and gate 4's cancel math is updated to match.</p>
       </div>
     </div>
     <div class="grid" style="margin-top:18px">
