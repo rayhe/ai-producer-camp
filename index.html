@@ -832,7 +832,7 @@
       <div class="card">
         <div class="role">The instructor · 1 adult</div>
         <h3>A generalist maker-educator</h3>
-        <p>One person: teaching experience plus hands-on maker fluency, background-checked, first-aid certified, AB 506 trained. Must be able to run a sensor build, a CAD session, a taste panel, and an interview drill in the same week. Pay: $2,000 per two-week session (10 instruction hours, a 4-hour Session Zero kitting day, 30 minutes of prep each teaching day (5 hours across the session), plus present-but-silent supervision through the daily project blocks and pickup and the 30-minute Day 10 parents' showcase, roughly 30 hours all in, about $67/hr blended). If hired rather than founder-operated, the instructor is a W-2 employee on Gusto payroll with California workers' comp bound before Day 1. Contractor arrangements are off the table: under California's ABC test (AB5, Labor Code §2775) an on-site, on-schedule instructor delivering the camp's core service is an employee, full stop.</p>
+        <p>One person: teaching experience plus hands-on maker fluency, background-checked, first-aid certified, AB 506 trained. Must be able to run a sensor build, a CAD session, a taste panel, and an interview drill in the same week. Pay: $2,000 per two-week session (10 instruction hours, a 4-hour Session Zero kitting day, 30 minutes of prep each teaching day (5 hours across the session), plus present-but-silent supervision through the daily project blocks and pickup, the 30-minute mid-week restock, and the 30-minute Day 10 parents' showcase, roughly 30 hours all in, about $67/hr blended). If hired rather than founder-operated, the instructor is a W-2 employee on Gusto payroll with California workers' comp bound before Day 1. Contractor arrangements are off the table: under California's ABC test (AB5, Labor Code §2775) an on-site, on-schedule instructor delivering the camp's core service is an employee, full stop.</p>
       </div>
       <div class="card">
         <div class="role">Camper crew · rotating, ages 13–14</div>
@@ -886,7 +886,7 @@
         <h3>Per-session operating</h3>
         <table class="budget">
           <tr><th>Line</th><th>Cost</th></tr>
-          <tr><td>Instructor pay (10 hrs teaching + 9 hrs prep and kitting: 4-hr Session Zero + 30 min/day + project-block supervision)</td><td>$2,000</td></tr>
+          <tr><td>Instructor pay (10 hrs teaching, 4-hr Session Zero, 30 min/day prep (5 hrs), 45-min daily project-block supervision (7.5 hrs), the 30-min mid-week restock, and the 30-min Day 10 showcase; roughly 27.5 hrs, stated as ~30 all in, about $67/hr blended)</td><td>$2,000</td></tr>
           <tr><td>Venue (makerspace, ~23 hrs @ $75: 9:00–11:15 daily, 11:45 on Day 10)</td><td>$1,725</td></tr>
           <tr><td>Materials &amp; consumables (12 campers)</td><td>$900</td></tr>
           <tr><td>Insurance share, licensing, first aid</td><td>$600</td></tr>
@@ -1073,7 +1073,7 @@
       <ul>
         <li><b>Airtable API</b>, the camper database of record: roster, med/allergy flags, pickup PINs + authorized-adult photos, incident log, daily attendance. <span class="pill ok">verified API</span></li>
         <li><b>Twilio</b>, parent comms: enrollment confirmation, week-of logistics pack, daily 9:15 drop-off ping and 11:15 pickup ping (Day 10: 11:45, after the parents' showcase), emergency broadcast. ~$140/session. <span class="pill ok">verified API</span></li>
-        <li><b>Equipment ordering, flagged honestly: Amazon Business has no public ordering API</b> (punch-out procurement only). <span class="pill warn">no public API</span> Electronics (micro:bits, sensors, solder stock) order cleanly via <b>Digi-Key / Mouser APIs</b> (real order APIs); big-ticket items, the $12,650 startup list in §07 (2 printers, 3 rover kits, 8 refurbished laptops), are assembled as carts by the agent with <b>one human checkout click</b>. Order by T-8 so printers are commissioned and staff-trained by T-2.</li>
+        <li><b>Equipment ordering, flagged honestly: Amazon Business has no public ordering API</b> (punch-out procurement only). <span class="pill warn">no public API</span> Electronics (micro:bits, sensors, solder stock) order cleanly via <b>Digi-Key / Mouser APIs</b> (real order APIs); big-ticket items, the $13,040 startup list in §07 (2 printers, 3 rover kits, 8 refurbished laptops), are assembled as carts by the agent with <b>one human checkout click</b>. Order by T-8 so printers are commissioned and staff-trained by T-2.</li>
       </ul>
       <div class="gate"><b>Kill gate 5</b>, Printers + laptop cart not commissioned by T-2 → switch Days 5/7 to a pre-negotiated partner makerspace (+$900 from contingency) rather than run untested tools with kids.</div>
     </div>
@@ -1201,7 +1201,7 @@
       <div class="card">
         <div class="role">The budget realist · 8/10</div>
         <h3>"The math checks. The margin is thin, and it says so."</h3>
-        <p>Per-session and launch arithmetic reconcile. Flagged: the Twilio ping times were left over from a full-day format (fixed to the 9:15/11:15 day), and instructor pay is now stated against all present hours, not just teaching hours. Flagged and fixed since the re-score: the venue line still billed ten one-hour lessons; it now bills the actual 23 hours of room time, the session's $575 shortfall is stated outright as sponsor-underwritten, and gate 4's cancel math is updated to match.</p>
+        <p>Per-session and launch arithmetic reconcile. Flagged: the Twilio ping times were left over from a full-day format (fixed to the 9:15/11:15 day), and instructor pay is now stated against all present hours, not just teaching hours. Flagged and fixed since the re-score: the venue line still billed ten one-hour lessons; it now bills the actual 23 hours of room time, the session's $575 shortfall is stated outright as sponsor-underwritten, and gate 4's cancel math is updated to match. Flagged and fixed in the latest pass: Phase 5 still cited the $12,650 pre-recorder startup total from before the Day 6 kit fix; it now cites the current $13,040. And the budget table's instructor-pay line claimed "10 hrs teaching + 9 hrs prep and kitting" while §06's mid-week restock (30 min, Wednesday evening) sat outside the stated hours; the line now enumerates all 27.5 paid hours (10 teaching, 4 Session Zero, 5 daily prep, 7.5 project-block supervision, 0.5 restock, 0.5 showcase), matching §06's "roughly 30 all in."</p>
       </div>
     </div>
     <div class="grid" style="margin-top:18px">
